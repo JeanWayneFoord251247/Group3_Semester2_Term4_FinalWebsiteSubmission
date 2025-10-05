@@ -50,6 +50,26 @@ body {
   font-size: 18px;
 }
 
+.index-icons .search-input {
+  width: 0;
+  opacity: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  transition: width 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+  background: #fff; /* visible background */
+  color: #000;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* When active, expand it */
+.index-icons .search-input.active {
+  width: 200px; /* adjust expanded size */
+  opacity: 1;
+  padding: 8px 12px;
+}
+
 /* Hero Section */
 header {
   background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover;
