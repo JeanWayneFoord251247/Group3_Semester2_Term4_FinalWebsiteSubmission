@@ -25,3 +25,15 @@
   input.addEventListener('blur', () => {
     input.classList.remove('active');
   });
+
+
+
+
+  // Toggle password visibility
+document.getElementById('togglePassword').addEventListener('click',()=>{
+  const input=document.getElementById('passwordInput');
+  const eye=document.getElementById('eyeIcon');
+  input.type=input.type==="password"?"text":"password";
+  eye.classList.toggle('fa-eye');
+  eye.classList.toggle('fa-eye-slash');
+});
