@@ -138,6 +138,157 @@ header {
 
 
 
+.signup-section {
+  background:url('../assets/images/SignUP\ Background.png') no-repeat center/cover;
+  min-height: 130vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.signup-overlay {
+  margin-right: 220px;
+  padding:40px;
+  border-radius:12px;
+  width:100%;
+  max-width:480px;
+}
+.signup-title {
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:40px;
+  text-align: left;
+}
+
+.signup-input {
+  background:#1e1e3b;
+  border:1px solid #4619AD;
+  color:#fff;
+  border-radius:8px;
+  padding:12px;
+  font-size:14px;
+}
+
+.signup-input:focus {
+  background:#1c2e16;
+  border-color:#6b46ba;
+  box-shadow:0 0 0 .2rem rgba(70,25,173,.4);
+}
+
+
+.signup-password-group .form-control {border-radius:8px 0 0 8px;}
+
+.signup-password-toggle {
+  background:#1e1e3b;
+  border:1px solid #4619AD;
+  border-left:none;
+  border-radius:0 8px 8px 0;
+  color:#fff;
+}
+
+.signup-continue-btn {
+  background:#4619AD;border:none;color:#fff;font-weight:700;
+  padding:12px;border-radius:8px;transition:.3s;
+}
+
+
+.signup-continue-btn:hover {
+  background:#6b46ba;
+}
+
+.signup-checkbox {
+  cursor:pointer;
+  width: 14px;
+  height: 14px;
+  border-radius: 15px;
+
+}
+
+.signup-terms-label {
+  font-size:13px;
+  color:#ffffff;
+  text-align: left;
+  margin-right: 140px;
+}
+
+
+.signup-terms-label a {
+  color:#05a6f6;
+  text-decoration:underline;
+  text-align: left;
+}
+
+.signup-separator {
+  text-align:center;
+  margin:20px 0;
+  position:relative;
+}
+
+.signup-separator span {
+  
+  padding:0 10px;
+  position:relative;
+  z-index:1;
+}
+.signup-separator::before {
+  content:"";
+  position:absolute;
+  top:50%;
+  left:0;
+  width:100%;
+  height:1px;
+  opacity: 30%;
+  background:#ffffff;z-index:0;
+}
+
+.signup-google-btn {
+  background:#fff;
+  color:#000;
+  font-weight:600;
+  padding:12px;
+  border-radius:8px;
+  transition:.2s;
+}
+
+.signup-google-btn:hover {
+  background:#eee;
+}
+
+
+.signup-login-link {
+  font-size:14px;
+  margin-top:10px;
+  color:#aaa;
+}
+
+.signup-login-link a {
+  color:#4619AD;
+  text-decoration:none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Footer */
