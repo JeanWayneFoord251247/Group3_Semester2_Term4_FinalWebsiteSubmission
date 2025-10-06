@@ -7,7 +7,7 @@ body {
 
 
 
-/* Navbar */
+
 .index-navFlex {
   background: transparent;
   padding: 10px 30px;
@@ -16,29 +16,29 @@ body {
 .index-logo {
   width: 180px; 
   height: auto;
-  margin-left: 20px; /* moves the logo more to the right */
+  margin-left: 20px; 
 }
 
 .index-nav-links .nav-link {
   font-weight: 800;
   font-size: 14px;
   margin: 0 15px;
-  color: #fff !important; /* default white */
-  transition: color 0.3s ease; /* smooth color change */
+  color: #fff !important; 
+  transition: color 0.3s ease; 
 }
 
-/* Hover effect only for the links */
+
 .index-nav-links .nav-link:hover {
   color: #6b46ba !important; 
 }
 
-/* Active link stays purple */
+
 .index-nav-links .active {
   color: #4619AD !important;
   font-weight: 800;
 }
 
-/* Icons remain white */
+
 .index-icons {
   margin-right: 30px; 
   display: flex;
@@ -57,20 +57,19 @@ body {
   border: none;
   outline: none;
   transition: width 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
-  background: #fff; /* visible background */
+  background: #fff; 
   color: #000;
   border-radius: 20px;
   font-size: 14px;
 }
 
-/* When active, expand it */
 .index-icons .search-input.active {
-  width: 200px; /* adjust expanded size */
+  width: 200px; 
   opacity: 1;
   padding: 8px 12px;
 }
 
-/* Hero Section */
+
 header {
   background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover;
   height: 100vh;
@@ -83,7 +82,7 @@ header {
 
 .index-header-content {
   max-width: 800px;
-  margin-top: 60px; /* pushes it further down */
+  margin-top: 60px; 
 }
 
 .index-title {
@@ -126,9 +125,151 @@ header {
 }
 
 .index-btn i {
-  margin-left: 10px; /* adjust the value to move the arrow further */
-  transition: margin-left 0.3s ease; /* optional smooth hover movement */
+  margin-left: 10px; 
+  transition: margin-left 0.3s ease; 
 }
+
+
+
+
+
+
+
+
+
+.signup-section {
+  background:url('../assets/images/SignUP\ Background.png') no-repeat center/cover;
+  min-height: 130vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.signup-overlay {
+  margin-right: 220px;
+  padding:40px;
+  border-radius:12px;
+  width:100%;
+  max-width:480px;
+}
+.signup-title {
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:40px;
+  text-align: left;
+}
+
+.signup-input {
+  background:#1e1e3b;
+  border:1px solid #4619AD;
+  color:#fff;
+  border-radius:8px;
+  padding:12px;
+  font-size:14px;
+}
+
+.signup-input:focus {
+  background:#1c2e16;
+  border-color:#6b46ba;
+  box-shadow:0 0 0 .2rem rgba(70,25,173,.4);
+}
+
+
+.signup-password-group .form-control {
+  border-radius:8px 0 0 8px;
+}
+
+.signup-password-toggle {
+  background:#1e1e3b;
+  border:1px solid #4619AD;
+  border-left:none;
+  border-radius:0 8px 8px 0;
+  color:#fff;
+}
+
+.signup-continue-btn {
+  background:#4619AD;
+  border:none;color:#fff;
+  font-weight:700;
+  padding:12px;
+  border-radius:8px;
+  transition:.3s;
+}
+
+
+.signup-continue-btn:hover {
+  background:#6b46ba;
+}
+
+.signup-checkbox {
+  cursor:pointer;
+  width: 14px;
+  height: 14px;
+  border-radius: 15px;
+
+}
+
+.signup-terms-label {
+  font-size:13px;
+  color:#ffffff;
+  text-align: left;
+  margin-right: 140px;
+}
+
+
+.signup-terms-label a {
+  color:#05a6f6;
+  text-decoration:underline;
+  text-align: left;
+}
+
+.signup-separator {
+  text-align:center;
+  margin:20px 0;
+  position:relative;
+}
+
+.signup-separator span {
+  
+  padding:0 10px;
+  position:relative;
+  z-index:1;
+}
+.signup-separator::before {
+  content:"";
+  position:absolute;
+  top:50%;
+  left:0;
+  width:100%;
+  height:1px;
+  opacity: 30%;
+  background:#ffffff;z-index:0;
+}
+
+.signup-google-btn {
+  background:#fff;
+  color:#000;
+  font-weight:600;
+  padding:12px;
+  border-radius:8px;
+  transition:.2s;
+}
+
+.signup-google-btn:hover {
+  background:#eee;
+}
+
+
+.signup-login-link {
+  font-size:14px;
+  margin-top:10px;
+  color:#aaa;
+}
+
+.signup-login-link a {
+  color:#4619AD;
+  text-decoration:none;}
+
 
 
 
@@ -155,7 +296,7 @@ header {
 }
 
 .footer-logo {
-  width: 180px; /* tiny logo */
+  width: 180px; 
   margin-bottom: 15px;
 }
 
@@ -200,24 +341,24 @@ header {
 .footer-social-icons img {
   width: 75px; 
   height: 75px;
-  margin-right: 1px; /* spacing between icons */
+  margin-right: 1px; 
   vertical-align: middle;
 }
 
 
 
-/* Subscribe Box */
+
 .subscribe-box {
-  background: #161b2e; /* dark background */
-  color: #c1c4ce; /* paragraph text color */
+  background: #161b2e; 
+  color: #c1c4ce; 
   padding: 25px 20px;
   border-radius: 15px;
-  width: 320px; /* slightly wider */
+  width: 320px; 
   box-sizing: border-box;
 }
 
 .subscribe-box h3 {
-  color: #ffffff; /* white heading */
+  color: #ffffff;
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
@@ -236,15 +377,15 @@ header {
   outline: none;
   font-size: 14px;
   color: #000;
-  background: #fff; /* white input field */
+  background: #fff; 
 }
 
 .subscribe-input input::placeholder {
-  color: #a0a3b0; /* light gray placeholder */
+  color: #a0a3b0; 
 }
 
 .subscribe-input button {
-  background: #4619AD; /* purple button */
+  background: #4619AD;
   color: #fff;
   border: none;
   padding: 0 20px;
@@ -257,7 +398,7 @@ header {
 }
 
 .subscribe-input button:hover {
-  background: #6b46ba; /* slightly lighter purple hover */
+  background: #6b46ba;
 }
 
 .subscribe-input button i {
@@ -268,12 +409,10 @@ header {
   font-size: 13px;
   line-height: 1.6;
   margin: 0;
-  color: #c1c4ce; /* paragraph text color */
+  color: #c1c4ce; 
 }
 
 
-
-/* Footer Bottom */
 .index-footer-bottom {
   border-top: 1px solid #222;
   margin-top: 30px;
