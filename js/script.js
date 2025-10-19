@@ -1,45 +1,47 @@
 
 class Movies {
-  constructor(adult, backdrop_path, genre_ids, id, original_language, original_title, overview,
-   popularity, poster_path, release_date, title, video, vote_average, vote_count, rating) {
-      this.adult = adult;
-      this.backdrop_path = backdrop_path;
-      this.genre_ids = genre_ids;
-      this.id = id;
-      this.original_language = original_language;
-      this.original_title = original_title;
-      this.overview = overview;
-      this.popularity = popularity;
-      this.poster_path = poster_path;
-      this.release_date = release_date;
-      this.title = title;
-      this.video = video;
-      this.vote_average = vote_average;
-      this.vote_count = vote_count;
-      this.rating = rating;
-   }
+  constructor(original_title, release_date, poster_path) {
+    this.original_title = original_title;
+    this.release_date = release_date;
+    this.poster_path = poster_path;
+  }
 }
 
-!(async function() {
-  const url = 'https://api.themoviedb.org/3/account/22320853/favorite/movies?language=en-US&page=1&sort_by=created_at.asc';
+!async function() {
+  const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
   const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YTkwMjRiODdlYjZkMGE5ZDZlM2M0NGQ2NzY0YjhlOSIsIm5iZiI6MTc1ODIxOTEzMS45ODUsInN1YiI6IjY4Y2M0YjdiYTY5NjNmODZjNjA3M2FjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hvq9nNtX8qnCtav2IRxSOX28k9EWqMQLja5B4BcesJM'
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YTkwMjRiODdlYjZkMGE5ZDZlM2M0NGQ2NzY0YjhlOSIsInN1YiI6IjY4Y2M0YjdiYTY5NjNmODZjNjA3M2FjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hvq9nNtX8qnCtav2IRxSOX28k9EWqMQLja5B4BcesJM'
     }
   };
 
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
+  // Fetch movies
+  let data = await fetch(url, options)
+    .then(response => response.json())
+    .then(result => { return result })
+    .catch(error => console.log(error));
 
-    console.log(data); 
+  const movieRow = document.getElementById('movieRow');
 
-  } catch (error) {
-    console.error('Error:', error);
+  // Loop through first 6 movies
+  for (let i = 0; i < 6; i++) {
+    let movieData = data.results[i];
+    let movie = new Movies(movieData.original_title, movieData.release_date, movieData.poster_path);
+
+    // Create HTML card
+    let card = document.createElement('div');
+    card.classList.add('movie-card');
+    card.innerHTML = `
+      <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.original_title}">
+      <p class="movie-original_title">${movie.original_title}</p>
+      <p class="movie-date">${movie.release_date}</p>
+    `;
+
+    movieRow.appendChild(card);
   }
-})();
+}();
 
   const searchIcon = document.querySelector('.index-icons a:last-child');
   
