@@ -38,3 +38,21 @@ document.getElementById('togglePassword').addEventListener('click',()=>{
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const removeButtons = document.querySelectorAll('.btn-remove');
+
+  removeButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const card = e.target.closest('.watch-card');
+      card.remove();
+    });
+  });
+
+  const playButtons = document.querySelectorAll('.btn-play');
+
+  playButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      alert('Play button clicked! Implement player here.');
+    });
+  });
+});

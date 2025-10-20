@@ -478,6 +478,130 @@ header {
 
 
 
+/* ===== WATCHLIST PAGE ===== */
+
+/* Flex layout to push footer to bottom */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background:url('../assets/images/Watchlist.png') no-repeat center/cover;
+  color: #fff;
+}
+
+.watchlist-section {
+  flex: 1;
+  padding: 120px 5% 80px;
+  box-sizing: border-box;
+}
+
+/* Container */
+.watchlist-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Title */
+.watchlist-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-align: left;
+  color: #fff;
+}
+
+/* Grid */
+.watchlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Ensure cards stay side by side on larger screens */
+@media (max-width: 768px) {
+  .watchlist-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+/* Optional: stack fully on very small screens */
+@media (max-width: 480px) {
+  .watchlist-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Card */
+.watch-card {
+  background: #0e0e0e;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 220px;
+}
+
+.watch-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image */
+.card-image {
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  display: block;
+  border-bottom: 2px solid #4619AD;
+}
+
+/* Buttons */
+.card-buttons {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-buttons button {
+  border: none;
+  background: #4619AD;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card-buttons button:hover {
+  background: #6b46ba;
+}
+
+/* Info */
+.card-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.movie-date {
+  font-size: 12px;
+  color: #bbb;
+}
 
 
 
