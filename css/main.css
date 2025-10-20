@@ -607,10 +607,16 @@ header {
   width: 100vw;
 }
 
+.img-fluid3{
+  margin-top: 100px;
+  width: 100vw;
+  margin-bottom: 50px;
+}
+
 .library-section1 {
   margin-top: 100px;
   width: 1920px;
-  height: 7550px;
+  height:4000px;
   background: linear-gradient(to bottom, #010101 0%, #10226A 63%);
 }
 
@@ -638,6 +644,7 @@ header {
 }
 
 .card-row {
+  margin-top: 25px;
   width: 100vw;
   display: flex;
   flex-direction: row;
