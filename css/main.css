@@ -163,11 +163,44 @@ header {
   max-width:480px;
 }
 .signup-title {
-  font-size:2rem;
+  font-size:3rem;
   font-weight:700;
   margin-bottom:40px;
   text-align: left;
 }
+
+
+.signup-input-wrapper {
+  position: relative;
+}
+
+.signup-input-wrapper i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color:#6b46ba;
+  font-size: 14px;
+  font-weight: medium;
+}
+
+.input-with-icon {
+  padding-left: 35px !important;
+  font-weight: medium;
+  color: #cecece !important;
+}
+
+.input-with-icon::placeholder {
+  color: #ababab;
+  font-weight: medium;
+  opacity: 1;
+}
+
+.input-with-icon:focus::placeholder {
+  opacity: 0;
+}
+
+
 
 .signup-input {
   background:#1e1e3b;
@@ -282,6 +315,303 @@ header {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+.login-section {
+  background:url('../assets/images/Log\ in\ Background.png') no-repeat center/cover;
+  min-height: 130vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.login-overlay {
+  margin-right: 220px;
+  padding:40px;
+  border-radius:12px;
+  width:100%;
+  max-width:480px;
+}
+.login-title {
+  font-size:3rem;
+  font-weight:700;
+  margin-bottom:40px;
+  text-align: left;
+}
+
+
+.login-input-wrapper {
+  position: relative;
+}
+
+.login-input-wrapper i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color:#6b46ba;
+  font-size: 14px;
+  font-weight: medium;
+}
+
+.input-with-icon {
+  padding-left: 35px !important;
+  font-weight: medium;
+  color: #cecece !important;
+}
+
+.input-with-icon::placeholder {
+  color: #ababab;
+  font-weight: medium;
+  opacity: 1;
+}
+
+.input-with-icon:focus::placeholder {
+  opacity: 0;
+}
+
+
+
+.login-input {
+  background:#1e1e3b;
+  border:1px solid #4619AD;
+  color:#fff;
+  border-radius:8px;
+  padding:12px;
+  font-size:14px;
+}
+
+.login-input:focus {
+  background:#1c2e16;
+  border-color:#6b46ba;
+  box-shadow:0 0 0 .2rem rgba(70,25,173,.4);
+}
+
+
+.login-password-group .form-control {
+  border-radius:8px 0 0 8px;
+}
+
+.login-password-toggle {
+  background:#1e1e3b;
+  border:1px solid #4619AD;
+  border-left:none;
+  border-radius:0 8px 8px 0;
+  color:#fff;
+}
+
+.login-continue-btn {
+  background:#4619AD;
+  border:none;color:#fff;
+  font-weight:700;
+  padding:12px;
+  border-radius:8px;
+  transition:.3s;
+}
+
+
+.login-continue-btn:hover {
+  background:#6b46ba;
+}
+
+.login-checkbox {
+  cursor:pointer;
+  width: 14px;
+  height: 14px;
+  border-radius: 15px;
+
+}
+
+.login-terms-label {
+  font-size:13px;
+  color:#ffffff;
+  text-align: left;
+  margin-right: 140px;
+}
+
+
+.login-terms-label a {
+  color:#05a6f6;
+  text-decoration:underline;
+  text-align: left;
+}
+
+.login-separator {
+  text-align:center;
+  margin:20px 0;
+  position:relative;
+}
+
+.login-separator span {
+  
+  padding:0 10px;
+  position:relative;
+  z-index:1;
+}
+.login-separator::before {
+  content:"";
+  position:absolute;
+  top:50%;
+  left:0;
+  width:100%;
+  height:1px;
+  opacity: 30%;
+  background:#ffffff;z-index:0;
+}
+
+.login-google-btn {
+  background:#fff;
+  color:#000;
+  font-weight:600;
+  padding:12px;
+  border-radius:8px;
+  transition:.2s;
+}
+
+.login-google-btn:hover {
+  background:#eee;
+}
+
+
+
+
+/* ===== WATCHLIST PAGE ===== */
+
+/* Flex layout to push footer to bottom */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background:url('../assets/images/Watchlist.png') no-repeat center/cover;
+  color: #fff;
+}
+
+.watchlist-section {
+  flex: 1;
+  padding: 120px 5% 80px;
+  box-sizing: border-box;
+}
+
+/* Container */
+.watchlist-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Title */
+.watchlist-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-align: left;
+  color: #fff;
+}
+
+/* Grid */
+.watchlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Ensure cards stay side by side on larger screens */
+@media (max-width: 768px) {
+  .watchlist-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+/* Optional: stack fully on very small screens */
+@media (max-width: 480px) {
+  .watchlist-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Card */
+.watch-card {
+  background: #0e0e0e;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 220px;
+}
+
+.watch-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image */
+.card-image {
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  display: block;
+  border-bottom: 2px solid #4619AD;
+}
+
+/* Buttons */
+.card-buttons {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-buttons button {
+  border: none;
+  background: #4619AD;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card-buttons button:hover {
+  background: #6b46ba;
+}
+
+/* Info */
+.card-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.movie-date {
+  font-size: 12px;
+  color: #bbb;
+}
 
 
 
