@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="shane oberholzer 241241">
+  <meta name="keywords" content="movies">
+
+   <title>CINEMA X</title>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap + Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  
+  <!-- Navbar -->
+  <header id="header-library">
+
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <img src="assets/images/La La Land.png" class="d-block w-100 img-fluid1" alt="Slide 1">
+      <div class="carousel-caption d-none d-md-block text-start">
+        <div class="meta">
+          <p class="subtitle">Earth’s Last Stand.</p>
+          <p class="release-date">Mar. 03, 2021 <span class="country">USA</span></p>
+        </div>
+        <br>
+        <p class="description">
+          When a mysterious space vessel crash-lands on Earth, a young woman and a ragtag group of tactical soldiers make a 
+          fateful discovery that puts them face-to-face with the planet’s greatest threat.
+        </p>
+        <div class="rating">
+          ⭐⭐⭐⭐☆ <span>8.0 IMDB Score</span>
+        </div>
+        <div class="buttons">
+          <button class="play-btn">PLAY</button>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <img src="assets/images/slide2.jpg" class="d-block w-100" alt="Slide 2">
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <img src="assets/images/slide3.jpg" class="d-block w-100" alt="Slide 3">
+    </div>
+
+  </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top index-navFlex">
+      <div class="container-fluid">
+
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/logo dv.png" alt="CINEMA X Logo" class="index-logo">
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto text-center index-nav-links">
+            <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+            <li class="nav-item"><a class="nav-link active" href="library.html">LIBRARY</a></li>
+            <li class="nav-item"><a class="nav-link" href="watchlist.html">WATCHLIST</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">ABOUT</a></li>
+            <li class="nav-item"><a class="nav-link" href="signup.html">SIGN UP</a></li>
+          </ul>
+        </div>
+
+        
+        <div class="index-icons d-flex align-items-center">
+          <a href="#" class="me-3"><i class="fa-solid fa-user"></i></a>
+          <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+        </div>
+      </div>
+    </nav>
+    </header>
+
+    <section class="library-section1">
+      <div class="filters">
+        <button class="filter-button"class="active">ALL</button>
+        <button class="filter-button">GENRE</button>
+        <button class="filter-button">YEAR</button>
+        <button class="filter-button">IMDB Score</button>
+        <button class="filter-button">NEW</button>
+        <button class="filter-button">OTHER</button>
+      </div>
+
+      <section class="movie-section">
+        
+        <div class="section-header">
+          <h2>Popular</h2>
+          <a href="#" class="view-all">View All →</a>
+        </div>
+
+<div class="card-row">
+  
+          <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Interstellar.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Badguys2.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Jurassic worl rebirth.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Lilo&Stitch.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Tron.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/HTTYD IRL.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+</div>
+
+      </section>
+
+      <section>
+
+ <div class="carousel-slide active">
+  <img src="assets/images/Home PageDesktop Image-1.png" class="img-fluid2" alt="Slide 1">
+  <div class="slide-caption d-none d-md-block text-start">
+    <div class="slide-meta">
+      <p class="slide-subtitle">Earth’s Last Stand.</p>
+      <p class="slide-release">Mar. 03, 2021 <span class="slide-country">USA</span></p>
+    </div>
+    <br>
+    <p class="slide-description">
+      When a mysterious space vessel crash-lands on Earth, a young woman and a ragtag group of tactical soldiers make a 
+      fateful discovery that puts them face-to-face with the planet’s greatest threat.
+    </p>
+    <div class="slide-rating">
+      ⭐⭐⭐⭐☆ <span>8.0 IMDB Score</span>
+    </div>
+    <div class="slide-buttons">
+      <button class="slide-play-btn">PLAY</button>
+      <button class="slide-add-btn">+</button>
+    </div>
+  </div>
+</div>
+
+    </section>
+
+    <section class="movie-section">
+        
+        <div class="section-header">
+          <h2>New</h2>
+          <a href="#" class="view-all">View All →</a>
+        </div>
+
+<div class="card-row">
+  
+          <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Interstellar.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Badguys2.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Jurassic worl rebirth.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Lilo&Stitch.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Tron.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/HTTYD IRL.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+</div>
+
+      </section>
+
+      <section class="movie-section">
+        
+        <div class="section-header">
+          <h2>Leaving Soon</h2>
+          <a href="#" class="view-all">View All →</a>
+        </div>
+
+<div class="card-row">
+  
+          <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Interstellar.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Badguys2.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Jurassic worl rebirth.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Lilo&Stitch.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Tron.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/HTTYD IRL.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+</div>
+
+      </section>
+
+      <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+      <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <img src="assets/images/Avengers Endgame.png" class="d-block img-fluid3" alt="Slide 1">
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <img src="assets/images/slide2.jpg" class="d-block w-100" alt="Slide 2">
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <img src="assets/images/slide3.jpg" class="d-block w-100" alt="Slide 3">
+    </div>
+
+  </div>
+
+  <div class="section-header">
+          <h2>Recommended</h2>
+          <a href="#" class="view-all">View All →</a>
+        </div>
+
+  <div class="card-row">
+  
+          <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Interstellar.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Badguys2.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Jurassic worl rebirth.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Lilo&Stitch.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/Tron.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+
+            <div class="card" style="width: 168px; height: 350px;">
+    <img src="assets/images/HTTYD IRL.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Date Released</p>
+    </div>
+  </div>
+</div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <!-- ✅ Footer -->
+  <footer class="index-footer">
+    <div class="index-footer-container">
+      
+      <!-- Left: Logo + Paragraph -->
+      <div class="index-footer-left">
+        <img src="assets/images/logo dv.png" alt="CINEMA X Logo" class="footer-logo">
+        <p>
+          Discover movies, track your favorites, and dive into the world<br>
+          of cinema. CINEMA X brings films, trailers, reviews, and ratings<br>
+          all in one place.
+        </p>
+        <div class="footer-social-icons">
+        <img src="assets/images/facebookicon.png" alt="Social 1">
+        <img src="assets/images/instagramicon.png" alt="Social 2">
+         <img src="assets/images/youtube icon.png" alt="Social 3">
+  </div>
+      </div>
+
+      <!-- Middle: Support Links -->
+      <div class="index-footer-middle">
+        <h3>SUPPORT</h3>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Help Center</a></li>
+        </ul>
+      </div>
+
+
+
+
+      <!-- Right: Subscribe Box -->
+      <div class="index-footer-right">
+        <div class="subscribe-box">
+          <h3>SUBSCRIBE</h3>
+          <form>
+            <div class="subscribe-input">
+              <input type="email" placeholder="Add email address">
+              <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </form>
+          <p>
+            Hello, we are CINEMA X. Our goal is to bring the excitement of movies to you. 
+            Subscribe to get the latest releases, trailers, and updates straight to your inbox!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="index-footer-bottom">
+      <p>Copyright © 2025 CINEMA X</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/JQuery.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
