@@ -1,47 +1,115 @@
-
-class Movies {
-  constructor(original_title, release_date, poster_path) {
-    this.original_title = original_title;
-    this.release_date = release_date;
-    this.poster_path = poster_path;
-  }
+class Movie {
+	constructor(title, overview, release_date, backdrop_path, poster_path) {
+		this.title = title;
+		this.overview = overview;
+		this.release_date = release_date;
+		this.backdrop_path = backdrop_path;
+		this.poster_path = poster_path;
+	}
 }
 
 !async function() {
-  const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YTkwMjRiODdlYjZkMGE5ZDZlM2M0NGQ2NzY0YjhlOSIsInN1YiI6IjY4Y2M0YjdiYTY5NjNmODZjNjA3M2FjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hvq9nNtX8qnCtav2IRxSOX28k9EWqMQLja5B4BcesJM'
-    }
-  };
 
-  // Fetch movies
-  let data = await fetch(url, options)
-    .then(response => response.json())
-    .then(result => { return result })
-    .catch(error => console.log(error));
+	const apiUrl = 'https://api.themoviedb.org/3/account/22320853/favorite/movies?language=en-US&page=1&sort_by=created_at.asc';
+	const apiOptions = {
+		method: 'GET',
+		headers: {
+			accept: 'application/json',
+			Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YTkwMjRiODdlYjZkMGE5ZDZlM2M0NGQ2NzY0YjhlOSIsIm5iZiI6MTc1ODIxOTEzMS45ODUsInN1YiI6IjY4Y2M0YjdiYTY5NjNmODZjNjA3M2FjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hvq9nNtX8qnCtav2IRxSOX28k9EWqMQLja5B4BcesJM'
+		}
+	};
 
-  const movieRow = document.getElementById('movieRow');
+	let data = await fetch(apiUrl, apiOptions)
+		.then((response) => response.json())
+		.then((result) => { return result })
+		.catch((error) => console.log(error));
 
-  // Loop through first 6 movies
-  for (let i = 0; i < 6; i++) {
-    let movieData = data.results[i];
-    let movie = new Movies(movieData.original_title, movieData.release_date, movieData.poster_path);
+	let movies = [];
+	for (let i = 0; i < data.results.length; i++) {
+		let movieData = data.results[i];
+		let movie = new Movie(
+			movieData.title,
+			movieData.overview,
+			movieData.release_date,
+			movieData.backdrop_path,
+			movieData.poster_path
+		);
+		movies.push(movie);
+	}
 
-    // Create HTML card
-    let card = document.createElement('div');
-    card.classList.add('movie-card');
-    card.innerHTML = `
-      <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.original_title}">
-      <p class="movie-original_title">${movie.original_title}</p>
-      <p class="movie-date">${movie.release_date}</p>
-    `;
+	const heroCarouselInner = document.getElementById('hero-carousel-inner'); // top carousel
+	const carouselUnderPopularInner = document.getElementById('carousel-under-popular-inner'); // under popular
+	const carouselAboveRecommendedInner = document.getElementById('carousel-above-recommended-inner'); // above recommended
+	const movieLists = document.querySelectorAll('.movie-list');
 
-    movieRow.appendChild(card);
-  }
+	function populateHeroCarousel() {
+		const carousels = [
+			heroCarouselInner,
+			carouselUnderPopularInner,
+			carouselAboveRecommendedInner
+		];
+
+		carousels.forEach(carousel => {
+			if (!carousel) return; // skip if element doesn't exist
+			carousel.innerHTML = '';
+			for (let i = 0; i < 5 && i < movies.length; i++) {
+				const movie = movies[i];
+				const activeClass = i === 0 ? 'active' : '';
+				carousel.innerHTML += `
+					<div class="carousel-item ${activeClass}">
+						<img src="https://image.tmdb.org/t/p/original${movie.backdrop_path}" class="d-block w-100" alt="${movie.title}">
+						<div class="carousel-caption">
+							<h5>${movie.title}</h5>
+							<p class="d-none d-md-block">${movie.overview}</p>
+							<p><small>Released: ${movie.release_date}</small></p>
+						</div>
+					</div>
+				`;
+			}
+		});
+	}
+
+	function populateMovieRows() {
+		let html = '';
+		for (const movie of movies) {
+			html += `
+				<div class="movie-card">
+					<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+					<div class="movie-card-info">
+						<h6>${movie.title}</h6>
+						<p>Released: ${movie.release_date}</p>
+					</div>
+				</div>
+			`;
+		}
+		movieLists.forEach(list => list.innerHTML = html);
+	}
+
+	populateHeroCarousel();
+	populateMovieRows();
+
 }();
+
+
+
+// //console.log(data);
+// //console.log(data.response[0].name);
+
+// let name = data.response[0].name;
+// let city = data.response[0].city;
+// let code = data.response[0].code;
+// let nickname = data.response[0].nickname;
+
+// let nbaTeams = new Teams(name, city,code, nickname,)
+
+// //console.log(nbaTeams);
+
+// document.getElementById('name').innerHTML = nbaTeams.name;
+// document.getElementById('content').innerHTML = "Nickname: " + nbaTeams.nickname + "<br>" + "Code: " + nbaTeams.code + "<br>" + "City: " + nbaTeams.city;
+
+
+// }();
+
 
   const searchIcon = document.querySelector('.index-icons a:last-child');
   
