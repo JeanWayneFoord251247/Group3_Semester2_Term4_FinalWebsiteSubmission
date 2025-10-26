@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="shane oberholzer 241241">
   <meta name="keywords" content="movies">
 
-   <title>CINEMA X</title>
+  <title>CINEMA X</title>
 
   <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,53 +22,8 @@
 </head>
 <body>
 
-  
-  <!-- Navbar -->
+  <!-- Navbar & Header -->
   <header id="header-library">
-
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-
-  <div class="carousel-inner">
-
-    <!-- Slide 1 -->
-    <div class="carousel-item active">
-      <img src="assets/images/La La Land.png" class="d-block w-100 img-fluid1" alt="Slide 1">
-      <div class="carousel-caption d-none d-md-block text-start">
-        <div class="meta">
-          <p class="subtitle">Earth’s Last Stand.</p>
-          <p class="release-date">Mar. 03, 2021 <span class="country">USA</span></p>
-        </div>
-        <br>
-        <p class="description">
-          When a mysterious space vessel crash-lands on Earth, a young woman and a ragtag group of tactical soldiers make a 
-          fateful discovery that puts them face-to-face with the planet’s greatest threat.
-        </p>
-        <div class="rating">
-          ⭐⭐⭐⭐☆ <span>8.0 IMDB Score</span>
-        </div>
-        <div class="buttons">
-          <button class="play-btn">PLAY</button>
-          <button class="add-btn">+</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="carousel-item">
-      <img src="assets/images/slide2.jpg" class="d-block w-100" alt="Slide 2">
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="carousel-item">
-      <img src="assets/images/slide3.jpg" class="d-block w-100" alt="Slide 3">
-    </div>
-
-  </div>
-
     <nav class="navbar navbar-expand-lg fixed-top index-navFlex">
       <div class="container-fluid">
 
@@ -83,7 +38,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Links -->
+        <!-- Navbar Links -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
           <ul class="navbar-nav mx-auto text-center index-nav-links">
             <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
@@ -94,329 +49,82 @@
           </ul>
         </div>
 
-        
         <div class="index-icons d-flex align-items-center">
           <a href="#" class="me-3"><i class="fa-solid fa-user"></i></a>
           <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
         </div>
       </div>
     </nav>
-    </header>
 
-    <section class="library-section1">
-      <div class="filters">
-        <button class="filter-button"class="active">ALL</button>
-        <button class="filter-button">GENRE</button>
-        <button class="filter-button">YEAR</button>
-        <button class="filter-button">IMDB Score</button>
-        <button class="filter-button">NEW</button>
-        <button class="filter-button">OTHER</button>
+     <!-- Hero Carousel -->
+  <section id="hero-carousel-section">
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+          <div class="carousel-inner" id="hero-carousel-inner">
+              <!-- Hero slides will be dynamically inserted here -->
+          </div>
       </div>
+  </section>
+  </header>
 
-      <section class="movie-section">
-        
-        <div class="section-header">
-          <h2>Popular</h2>
-          <a href="#" class="view-all">View All →</a>
-        </div>
-
-<div class="card-row">
-  
-          <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Interstellar.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Badguys2.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Jurassic worl rebirth.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Lilo&Stitch.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Tron.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/HTTYD IRL.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-</div>
-
+    <!-- Movie Rows -->
+  <main class="container-fluid my-5">
+      <!-- Popular -->
+      <section class="movie-row" id="popular-movies">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="text-white">Popular</h3>
+              <a href="#" class="text-white">View All <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="movie-list"></div>
       </section>
 
-      <section>
-
- <div class="carousel-slide active">
-  <img src="assets/images/Home PageDesktop Image-1.png" class="img-fluid2" alt="Slide 1">
-  <div class="slide-caption d-none d-md-block text-start">
-    <div class="slide-meta">
-      <p class="slide-subtitle">Earth’s Last Stand.</p>
-      <p class="slide-release">Mar. 03, 2021 <span class="slide-country">USA</span></p>
-    </div>
-    <br>
-    <p class="slide-description">
-      When a mysterious space vessel crash-lands on Earth, a young woman and a ragtag group of tactical soldiers make a 
-      fateful discovery that puts them face-to-face with the planet’s greatest threat.
-    </p>
-    <div class="slide-rating">
-      ⭐⭐⭐⭐☆ <span>8.0 IMDB Score</span>
-    </div>
-    <div class="slide-buttons">
-      <button class="slide-play-btn">PLAY</button>
-      <button class="slide-add-btn">+</button>
-    </div>
-  </div>
-</div>
-
-    </section>
-
-    <section class="movie-section">
-        
-        <div class="section-header">
-          <h2>New</h2>
-          <a href="#" class="view-all">View All →</a>
+<!-- Carousel Under Popular -->
+<section id="carousel-under-popular-section">
+    <div id="carousel-under-popular" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner" id="carousel-under-popular-inner">
+            <!-- Slides will be dynamically inserted here -->
         </div>
-
-<div class="card-row">
-  
-          <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Interstellar.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
     </div>
-  </div>
+</section>
 
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Badguys2.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Jurassic worl rebirth.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Lilo&Stitch.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Tron.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/HTTYD IRL.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-</div>
-
+      <!-- New -->
+      <section class="movie-row my-5" id="new-movies">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="text-white">New</h3>
+              <a href="#" class="text-white">View All <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="movie-list"></div>
       </section>
 
-      <section class="movie-section">
-        
-        <div class="section-header">
-          <h2>Leaving Soon</h2>
-          <a href="#" class="view-all">View All →</a>
-        </div>
-
-<div class="card-row">
-  
-          <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Interstellar.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Badguys2.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Jurassic worl rebirth.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Lilo&Stitch.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Tron.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/HTTYD IRL.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-</div>
-
+      <!-- Leaving Soon -->
+      <section class="movie-row my-5" id="leaving-soon-movies">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="text-white">Leaving Soon</h3>
+              <a href="#" class="text-white">View All <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="movie-list"></div>
       </section>
 
-      <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-
-      <div class="carousel-inner">
-
-    <!-- Slide 1 -->
-    <div class="carousel-item active">
-      <img src="assets/images/Avengers Endgame.png" class="d-block img-fluid3" alt="Slide 1">
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="carousel-item">
-      <img src="assets/images/slide2.jpg" class="d-block w-100" alt="Slide 2">
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="carousel-item">
-      <img src="assets/images/slide3.jpg" class="d-block w-100" alt="Slide 3">
-    </div>
-
-  </div>
-
-  <div class="section-header">
-          <h2>Recommended</h2>
-          <a href="#" class="view-all">View All →</a>
+ <!-- Carousel Above Recommended -->
+<section id="carousel-above-recommended-section">
+    <div id="carousel-above-recommended" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner" id="carousel-above-recommended-inner">
+            <!-- Slides will be dynamically inserted here -->
         </div>
-
-  <div class="card-row">
-  
-          <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Interstellar.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
     </div>
-  </div>
+</section>
 
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Badguys2.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Jurassic worl rebirth.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Lilo&Stitch.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/Tron.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-
-            <div class="card" style="width: 168px; height: 350px;">
-    <img src="assets/images/HTTYD IRL.jpg" class="card-img-top" alt="..." style="width: 168px; height: 250px;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Date Released</p>
-    </div>
-  </div>
-</div>
-
-    </section>
+      <!-- Recommended -->
+      <section class="movie-row my-5" id="recommended-movies">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="text-white">Recommended</h3>
+              <a href="#" class="text-white">View All <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="movie-list"></div>
+      </section>
 
 
 
-
-
-
-
-
-
-
-
-
-
-  
-
-  <!-- ✅ Footer -->
+  <!-- footer -->
   <footer class="index-footer">
     <div class="index-footer-container">
       
