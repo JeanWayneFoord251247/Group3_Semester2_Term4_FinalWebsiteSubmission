@@ -81,6 +81,16 @@ header {
   position: relative;
 }
 
+#header-library{
+  background: no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
 .index-header-content {
   max-width: 800px;
   margin-top: 80px;
