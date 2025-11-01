@@ -910,3 +910,13 @@ body {
         width: 150px;
     }
 }
+
+#header-library1{
+  background: no-repeat center center/cover;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
