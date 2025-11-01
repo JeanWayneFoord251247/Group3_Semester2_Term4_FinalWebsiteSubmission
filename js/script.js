@@ -37,9 +37,9 @@ class Movie {
 		movies.push(movie);
 	}
 
-	const heroCarouselInner = document.getElementById('hero-carousel-inner'); // top carousel
-	const carouselUnderPopularInner = document.getElementById('carousel-under-popular-inner'); // under popular
-	const carouselAboveRecommendedInner = document.getElementById('carousel-above-recommended-inner'); // above recommended
+	const heroCarouselInner = document.getElementById('hero-carousel-inner');
+	const carouselUnderPopularInner = document.getElementById('carousel-under-popular-inner');
+	const carouselAboveRecommendedInner = document.getElementById('carousel-above-recommended-inner');
 	const movieLists = document.querySelectorAll('.movie-list');
 
 	function populateHeroCarousel() {
@@ -50,7 +50,7 @@ class Movie {
 		];
 
 		carousels.forEach(carousel => {
-			if (!carousel) return; // skip if element doesn't exist
+			if (!carousel) return;
 			carousel.innerHTML = '';
 			for (let i = 0; i < 5 && i < movies.length; i++) {
 				const movie = movies[i];
@@ -71,9 +71,10 @@ class Movie {
 
 	function populateMovieRows() {
 		let html = '';
-		for (const movie of movies) {
+		for (let i = 0; i < movies.length; i++) {
+			const movie = movies[i];
 			html += `
-				<div class="movie-card">
+				<div class="movie-card" data-id="${data.results[i].id}">
 					<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
 					<div class="movie-card-info">
 						<h6>${movie.title}</h6>
@@ -83,12 +84,82 @@ class Movie {
 			`;
 		}
 		movieLists.forEach(list => list.innerHTML = html);
+
+		// Make cards clickable
+		document.querySelectorAll('.movie-card').forEach(card => {
+			card.addEventListener('click', () => {
+				const id = card.getAttribute('data-id');
+				window.location.href = `movie.html?id=${id}`;
+			});
+		});
 	}
 
 	populateHeroCarousel();
 	populateMovieRows();
 
 }();
+
+// Get movie ID from URL
+const urlParams = new URLSearchParams(window.location.search);
+const movieId = urlParams.get('id');
+
+const apiOptions = {
+	method: 'GET',
+	headers: {
+		accept: 'application/json',
+		Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YTkwMjRiODdlYjZkMGE5ZDZlM2M0NGQ2NzY0YjhlOSIsIm5iZiI6MTc1ODIxOTEzMS45ODUsInN1YiI6IjY4Y2M0YjdiYTY5NjNmODZjNjA3M2FjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hvq9nNtX8qnCtav2IRxSOX28k9EWqMQLja5B4BcesJM'
+	}
+};
+
+!async function() {
+
+	let movieData = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, apiOptions)
+		.then((response) => response.json())
+		.then((result) => { return result })
+		.catch((error) => console.log("Movie fetch error:", error));
+
+	let trailerData = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, apiOptions)
+		.then((response) => response.json())
+		.then((result) => { return result })
+		.catch((error) => console.log("Trailer fetch error:", error));
+
+	// Display movie info
+	const detailsContainer = document.getElementById('movie-details');
+	detailsContainer.innerHTML = `
+		<div class="col-md-5">
+			<img src="https://image.tmdb.org/t/p/w500${movieData.poster_path}" alt="${movieData.title}" class="img-fluid rounded">
+		</div>
+		<div class="col-md-7">
+			<h2>${movieData.title}</h2>
+			<p><strong>Release Date:</strong> ${movieData.release_date}</p>
+			<p><strong>Rating:</strong> ${movieData.vote_average} / 10</p>
+			<p>${movieData.overview}</p>
+			<button class="index-btn btn-play"><i class="fa-solid fa-play"></i> Play Trailer</button>
+			<div id="trailer-container" style="margin-top:20px;"></div>
+		</div>
+	`;
+
+	// Handle trailer
+	const trailer = trailerData.results.find(video => video.site === 'YouTube' && video.type === 'Trailer');
+	const playButton = document.querySelector('.btn-play');
+	const trailerContainer = document.getElementById('trailer-container');
+
+	playButton.addEventListener('click', () => {
+		if (trailer) {
+			trailerContainer.innerHTML = `
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/${trailer.key}" 
+				title="${movieData.title} Trailer" frameborder="0" allowfullscreen></iframe>
+			`;
+			playButton.style.display = 'none';
+		} else {
+			trailerContainer.innerHTML = `<p>No trailer available for this movie.</p>`;
+		}
+	});
+
+}();
+
+
+
 
 
 
