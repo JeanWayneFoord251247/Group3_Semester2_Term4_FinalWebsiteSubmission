@@ -905,10 +905,12 @@ body {
     width: 200px;
     margin-right: 20px;
     border-radius: 10px;
+    color: black;
+    background-color: #000;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    color: #1c2e16;
+    
 }
 
 .movie-card:hover {
@@ -927,11 +929,12 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    /*background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);*/ 
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); 
     padding: 10px;
     opacity: 0;
     transition: opacity 0.3s ease;
-    background-color: rgba(12, 17, 27, 0.8);
+    color: white 
+    background-color: #0c111b;
 }
 
 .movie-card:hover .movie-card-info {
@@ -941,12 +944,18 @@ body {
 .movie-card-info h6 {
     font-size: 16px; 
     margin-bottom: 5px;
+    
 }
 
 .movie-card-info p {
     font-size: 12.8px; 
-    color: #ccc;
+    color: black;
 }
+
+.watchlist-container {
+    padding: 80px 5%;
+    box-sizing: border-box;
+    color: black;
 
 /* Responsive Design */
 @media (max-width: 992px) {
