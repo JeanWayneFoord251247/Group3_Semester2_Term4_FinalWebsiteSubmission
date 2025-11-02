@@ -82,3 +82,30 @@ document.getElementById('togglePassword').addEventListener('click',()=>{
 });
 
 
+// Mene' De Beer 
+ 
+const btn-remove = document.getElementById('btn-remove');
+const movie-name  = document.getElementById('movie-name');
+const watchlist = document.getElementById('watchlist');
+
+//add movie 
+addBtn-play.addEventListener('click', () => {
+  // add to watchlist
+  watchlist.appendChild(movie-card);
+
+  // remove add button
+  movie-card.querySelector('.btn-add').remove();
+
+  // add remove button
+  const removeBtn = document.createElement('button');
+  removeBtn.classList.add('btn-remove');
+  removeBtn.textContent = 'Remove';
+  movie-card.appendChild(removeBtn);
+
+  // add remove functionality
+  removeBtn.addEventListener('click', () => {
+    movie-card.remove();
+  });
+});
+
+

@@ -10714,3 +10714,46 @@ if ( typeof noGlobal === "undefined" ) {
 
 return jQuery;
 } );
+
+
+// Mene' De Beer 241089 
+document.addEventListener('DOMContentLoaded', () => {
+    const cardContainer = document.getElementById('card-container');
+    const addCardBtn = document.getElementById('add-card-btn');
+    let cardCount = 0; // To give unique IDs to cards
+
+    // Function to create a new card element
+    function createCardElement() {
+        cardCount++;
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.id = `card-${cardCount}`;
+        card.innerHTML = `
+            <h3>Card ${cardCount}</h3>
+            <p>This is the content of Card ${cardCount}.</p>
+            <button class="remove-btn">X</button>
+        `;
+
+        // Add event listener to the remove button
+        const removeBtn = card.querySelector('.remove-btn');
+        removeBtn.addEventListener('click', () => {
+            card.remove(); // Removes the card from the DOM
+        });
+
+        return card;
+    }
+
+    // Event listener for adding a card
+    addCardBtn.addEventListener('click', () => {
+        const newCard = createCardElement();
+        cardContainer.appendChild(newCard);
+    });
+
+    // Example: Add an initial card on page load
+    cardContainer.appendChild(createCardElement());
+});
+
+ // Remove Movie (use event delegation for dynamically added cards)
+ $('#watchlist').on('click', '.remove-btn', function() {
+	$(this).closest('.movie-card').remove();
+});
