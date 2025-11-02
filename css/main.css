@@ -634,7 +634,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background:url('../assets/images/Watchlist.png') no-repeat center/cover;
+  background:url(../assets/images/Watchlist background.jpg ) no-repeat center/cover;
   color: #fff;
 }
 
