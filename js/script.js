@@ -329,3 +329,65 @@ addBtn-play.addEventListener('click', () => {
 });
 
 
+// Add to watchlist logic
+const watchlistBtn = document.querySelector('.btn-watchlist');
+let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+
+// Disable button if already in watchlist
+if (watchlist.some(item => item.id === movieData.id)) {
+	watchlistBtn.textContent = '✔ Added';
+	watchlistBtn.disabled = true;
+	watchlistBtn.style.backgroundColor = 'green';
+}
+
+watchlistBtn.addEventListener('click', () => {
+	if (!watchlist.some(item => item.id === movieData.id)) {
+		watchlist.push({
+			id: movieData.id,
+			title: movieData.title,
+			poster: movieData.poster_path,
+			rating: movieData.vote_average,
+			release: movieData.release_date
+		});
+		localStorage.setItem('watchlist', JSON.stringify(watchlist));
+		watchlistBtn.textContent = '✔ Added';
+		watchlistBtn.disabled = true;
+		watchlistBtn.style.backgroundColor = 'green';
+	} else {
+		alert('Movie is already in your watchlist.');
+	}
+});
+}();
+}
+
+// =================== WATCHLIST PAGE ===================
+const watchlistContainer = document.getElementById('watchlist-container');
+if (watchlistContainer) {
+let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+
+if (watchlist.length === 0) {
+watchlistContainer.innerHTML = '<p>No movies in your watchlist yet.</p>';
+} else {
+watchlistContainer.innerHTML = watchlist.map(movie => `
+	<div class="col-md-3 mb-4">
+		<div class="card watchlist-card">
+			<img src="https://image.tmdb.org/t/p/w500${movie.poster}" alt="${movie.title}" class="img-fluid rounded">
+			<h3>${movie.title}</h3>
+			<p>⭐ ${movie.rating} / 10</p>
+			<p>${movie.release}</p>
+			<button class="remove-btn" data-id="${movie.id}"><i class="fa-solid fa-minus"></button>
+		</div>
+	</div>
+`).join('');
+}
+
+// Remove movie instantly
+watchlistContainer.addEventListener('click', e => {
+if (e.target.classList.contains('remove-btn')) {
+	const id = parseInt(e.target.dataset.id);
+	watchlist = watchlist.filter(movie => movie.id !== id);
+	localStorage.setItem('watchlist', JSON.stringify(watchlist));
+	e.target.closest('.col-md-3').remove();
+}
+});
+}
