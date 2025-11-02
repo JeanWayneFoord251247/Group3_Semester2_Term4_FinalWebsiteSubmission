@@ -204,10 +204,10 @@ if (watchlistContainer) {
 		watchlistContainer.innerHTML = watchlist.map(movie => `
 			<div class="col-md-3 mb-4">
 				<div class="card watchlist-card">
-					<img src="https://image.tmdb.org/t/p/w500${movie.poster}" alt="${movie.title}" class="img-fluid rounded">
-					<h3>${movie.title}</h3>
-					<p>⭐ ${movie.rating} / 10</p>
-					<p>${movie.release}</p>
+					<img src="../assets/Avengers endgame portait movie poster .jpg" alt="Avengers Endgame" class="img-fluid rounded">
+					<h3>Avengers Endgame</h3>
+					<p>⭐ 8.4 / 10</p>
+					<p>26 April 2019 </p>
 					<button class="remove-btn" data-id="${movie.id}">Remove</button>
 				</div>
 			</div>
@@ -307,11 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-// Mene' De Beer 
- 
-const btn-remove = document.getElementById('btn-remove');
-const movie-name  = document.getElementById('movie-name');
-const watchlist = document.getElementById('watchlist');
 
 //add movie 
 addBtn-play.addEventListener('click', () => {
