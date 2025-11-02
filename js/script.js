@@ -120,8 +120,8 @@ if (movieId) {
 			<p><strong>Release Date:</strong> ${movieData.release_date}</p>
 			<p><strong>Rating:</strong> ${movieData.vote_average} / 10</p>
 			<p>${movieData.overview}</p>
-			<button class="index-btn btn-play">▶ Play Trailer</button>
-			<button class="index-btn btn-watchlist">➕ Add to Watchlist</button>
+			<button class="index-btn btn-play"> Play Trailer</button>
+			<button class="index-btn btn-watchlist"> Add to Watchlist</button>
 			<div id="trailer-container" style="margin-top:20px;"></div>
 		</div>`;
 
@@ -144,7 +144,7 @@ if (movieId) {
 		let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
 		if (watchlist.some(item => item.id === movieData.id)) {
-			watchlistBtn.textContent = '✔ Added';
+			watchlistBtn.textContent = ' Added';
 			watchlistBtn.disabled = true;
 			watchlistBtn.style.backgroundColor = 'green';
 		}
@@ -159,7 +159,7 @@ if (movieId) {
 					release: movieData.release_date
 				});
 				localStorage.setItem('watchlist', JSON.stringify(watchlist));
-				watchlistBtn.textContent = '✔ Added';
+				watchlistBtn.textContent = ' Added';
 				watchlistBtn.disabled = true;
 				watchlistBtn.style.backgroundColor = 'green';
 			}
