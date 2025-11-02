@@ -1123,7 +1123,7 @@ body {
 
 
 
-/* ==== About Us Page ==== */
+/* = Shane improved liams about page code */
 #about-us-header {
   background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover;
   min-height: 140vh;
@@ -1293,3 +1293,109 @@ body {
   .review-text { font-size: 0.9rem; }
   .review-block { width: 95%; padding: 15px; }
 }
+
+
+
+/* = Liams about page code */
+
+/* #about-us-header {
+  background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.about-header-content {
+ align-content: center;
+}
+
+.about-title {
+  font-size: 1.5rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  margin-top: -6cm;
+}
+
+.about-title span {
+  color: #4619AD;
+}
+
+.about-subtitle {
+  font-size: 1rem;
+}
+
+.happy-viewers {
+  font-size: 1rem;
+  margin-top: 2cm;
+}
+.choose-us {
+font-size: 2rem;
+}
+
+.choose-us span {
+color: #4619AD;
+font-weight: bold;
+}
+
+
+.about-pargf-1 {
+  font-size: 0.8rem;
+  margin-top: 20px ;
+  margin-bottom: 0px ;
+  line-height: 1.6;
+}
+
+.about-pargf-2 {
+  font-size: 0.8rem;
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+  line-height: 1.6;
+}
+
+.blocks {
+  text-align: left;
+  margin-left: -10cm;
+  border-style: solid;
+  border-color: #4619AD;
+  margin-top: 3cm;
+  padding: 0.5cm;
+  position: absolute;
+}
+
+.blocks span {
+font-size: 2rem;
+}
+
+.block-2 {
+  text-align: left;
+  margin-left: 0cm;
+  border-style: solid;
+  border-color: #4619AD;
+  margin-top: 3cm;
+  padding: 0.5cm;
+  position: absolute;
+  margin-left: 2cm;
+}
+
+.block-2 span {
+font-size: 2rem;
+}
+
+.block-3 {
+  text-align: left;
+  margin-left: 0cm;
+  border-style: solid;
+  border-color: #4619AD;
+  margin-top: 3cm;
+  padding: 0.5cm;
+  position: absolute;
+  margin-left: 14cm;
+}
+
+.block-3 span {
+font-size: 2rem;
+}  */
