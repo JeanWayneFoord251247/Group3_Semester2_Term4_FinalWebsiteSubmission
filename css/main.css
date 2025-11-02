@@ -69,7 +69,6 @@ body {
   padding: 8px 12px;
 }
 
-
 /* Header / Hero */
 header {
   background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover;
@@ -201,6 +200,83 @@ header {
 
 
 
+/* Footer */
+.index-footer {
+  background-color: #111;
+  color: #fff;
+}
+
+.index-footer h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.index-footer a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.index-footer a:hover {
+  color: #6b46ba;
+}
+
+.footer-logo {
+  width: 140px;
+}
+
+.footer-social-icons img {
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s;
+}
+
+.footer-social-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .index-title {
+    font-size: 2.8rem;
+  }
+  header {
+    background-position: top;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-title {
+    font-size: 2.3rem;
+  }
+  .index-subtitle {
+    font-size: 1rem;
+  }
+  .index-description {
+    font-size: 0.9rem;
+  }
+  .index-btn {
+    padding: 10px 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    background: url('../assets/images/Home\ PageDesktop\ Image.png') no-repeat center center/cover;
+  }
+  .index-logo {
+    width: 130px;
+  }
+  .index-title {
+    font-size: 2rem;
+  }
+  .index-description {
+    font-size: 0.85rem;
+  }
+}
+
+
+
+
+
 
 
 
@@ -250,8 +326,6 @@ header {
   color: #6b46ba;
   font-size: 16px;
   pointer-events: none;
-  font-size: 14px;
-  font-weight: medium;
 }
 
 /* Inputs */
@@ -309,17 +383,6 @@ header {
   color: #fff;
   cursor: pointer;
   padding: 0;
-/* Password Toggle */
-.signup-password-group .form-control {
-  border-radius: 8px 0 0 8px;
-}
-
-.signup-password-toggle {
-  background: #1e1e3b;
-  border: 1px solid #4619AD;
-  border-left: none;
-  border-radius: 0 8px 8px 0;
-  color: #fff;
 }
 
 /* Buttons */
@@ -437,30 +500,6 @@ header {
 }
 
 
-@media (max-width: 991.98px) {
-  /* Change background for smaller screens */
-  .signup-section {
-    background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover;
-    justify-content: center;
-  }
-
-  .signup-overlay {
-    margin-right: 0;
-    width: 90%;
-    padding: 30px;
-  }
-
-  .signup-terms-label {
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .signup-title {
-    font-size: 2rem;
-    text-align: center;
-  }
-}
 
 
 
@@ -472,11 +511,6 @@ header {
 
 
 
-
-
-
-
-  
 
   /* Login Section */
 .login-section {
@@ -679,134 +713,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background:url(../assets/images/Watchlist background.jpg ) no-repeat center/cover;
-  color: #fff;
-}
-
-.watchlist-section {
-  flex: 1;
-  padding: 120px 5% 80px;
-  box-sizing: border-box;
-}
-
-/* Container */
-.watchlist-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-/* Title */
-.watchlist-title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 50px;
-  text-align: left;
-  color: #fff;
-}
-
-/* Grid */
-.watchlist-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  justify-items: center;
-}
-
-/* Ensure cards stay side by side on larger screens */
-@media (max-width: 768px) {
-  .watchlist-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-}
-
-/* Optional: stack fully on very small screens */
-@media (max-width: 480px) {
-  .watchlist-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-/* Card */
-.watch-card {
-  background: #0e0e0e;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s ease;
-  width: 100%;
-  max-width: 220px;
-}
-
-.watch-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Image */
-.card-image {
-  position: relative;
-}
-
-.card-image img {
-  width: 100%;
-  display: block;
-  border-bottom: 2px solid #4619AD;
-}
-
-/* Buttons */
-.card-buttons {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.card-buttons button {
-  border: none;
-  background: #4619AD;
-  color: white;
-  padding: 6px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.card-buttons button:hover {
-  background: #6b46ba;
-}
-
-/* Info */
-.card-info {
-  padding: 10px;
-  text-align: center;
-}
-
-.movie-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-}
-
-.movie-date {
-  font-size: 12px;
-  color: #bbb;
-}
-
-
-
-
-/* ===== WATCHLIST PAGE ===== */
-
-/* Flex layout to push footer to bottom */
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   background:url('../assets/images/Watchlist.png') no-repeat center/cover;
   color: #fff;
 }
@@ -922,6 +828,211 @@ body {
   font-size: 12px;
   color: #bbb;
 }
+
+
+
+/*Jean-Wayne */
+
+/* Header */
+.navbar {
+    background-color: rgba(12, 17, 27, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+/* Hero Carousel */
+#hero-carousel .carousel-item {
+    height: 100%;
+    position: relative;
+    margin-bottom: 150px;
+}
+
+#hero-carousel .carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(12, 17, 27, 0.9) 20%, rgba(12, 17, 27, 0.2) 80%);
+}
+
+#hero-carousel img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#hero-carousel .carousel-caption {
+    text-align: left;
+    left: 10%;
+    right: auto;
+    bottom: 50%;
+    transform: translateY(50%);
+    width: 45%;
+}
+
+#hero-carousel .carousel-caption h5 {
+    font-size: 56px; 
+    font-weight: bold;
+    margin-bottom: 16px; 
+}
+
+#hero-carousel .carousel-caption p {
+    font-size: 17.6px; 
+    line-height: 1.6;
+}
+
+/* Movie Rows */
+.movie-row h3 {
+    font-weight: bold;
+}
+
+.movie-list {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; 
+}
+
+.movie-list::-webkit-scrollbar {
+    display: none; 
+}
+
+.movie-card {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.movie-card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .movie-card-info {
+    opacity: 1;
+}
+
+.movie-card-info h6 {
+    font-size: 16px; 
+    margin-bottom: 5px;
+}
+
+.movie-card-info p {
+    font-size: 12.8px; 
+    color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-nav {
+        background-color: #0c111b;
+        text-align: center;
+        padding: 16px 0; 
+    }
+
+    #hero-carousel .carousel-caption {
+        width: 80%;
+    }
+
+    #hero-carousel .carousel-caption h5 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-card {
+        width: 150px;
+    }
+}
+
+#header-library1{
+  background: no-repeat center center/cover;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.slide-add-btn:hover {
+  background-color: white;
+  color: #000;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .slide-caption {
+    top: 60%;
+    left: 8%;
+    max-width: 85%;
+  }
+
+  .slide-description {
+    font-size: 14px; 
+  }
+
+  .slide-play-btn {
+    padding: 8px 25px;
+  }
+}
+
+.slide-meta {
+  display: flex;
+  align-items: center;
+  gap: 105px; 
+}
+
+.slide-subtitle,
+.slide-release {
+  margin: 0;
+  display: inline;
+}
+
+
+/* ===== BODY RESET ===== */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1081,197 +1192,4 @@ body {
 
 .index-footer-bottom a:hover {
   color: #fff;
-}
-
-/* Jean-Wayne */
-
-/* Header */
-.navbar {
-    background-color: rgba(12, 17, 27, 0.8);
-    backdrop-filter: blur(10px);
-}
-
-/* Hero Carousel */
-#hero-carousel .carousel-item {
-    height: 100%;
-    position: relative;
-    margin-bottom: 150px;
-}
-
-#hero-carousel .carousel-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(12, 17, 27, 0.9) 20%, rgba(12, 17, 27, 0.2) 80%);
-}
-
-#hero-carousel img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
-
-#hero-carousel .carousel-caption {
-    text-align: left;
-    left: 10%;
-    right: auto;
-    bottom: 50%;
-    transform: translateY(50%);
-    width: 45%;
-}
-
-#hero-carousel .carousel-caption h5 {
-    font-size: 56px; 
-    font-weight: bold;
-    margin-bottom: 16px; 
-}
-
-#hero-carousel .carousel-caption p {
-    font-size: 17.6px; 
-    line-height: 1.6;
-}
-
-/* Movie Rows */
-.movie-row h3 {
-    font-weight: bold;
-}
-
-.movie-list {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 20px;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; 
-}
-
-.movie-list::-webkit-scrollbar {
-    display: none; 
-}
-
-.movie-card {
-    flex: 0 0 auto;
-    width: 200px;
-    margin-right: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-}
-
-.movie-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-}
-
-.movie-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.movie-card-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    padding: 10px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.movie-card:hover .movie-card-info {
-    opacity: 1;
-}
-
-.movie-card-info h6 {
-    font-size: 16px; 
-    margin-bottom: 5px;
-}
-
-.movie-card-info p {
-    font-size: 12.8px; 
-    color: #ccc;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .navbar-nav {
-        background-color: #0c111b;
-        text-align: center;
-        padding: 16px 0; 
-    }
-
-    #hero-carousel .carousel-caption {
-        width: 80%;
-    }
-
-    #hero-carousel .carousel-caption h5 {
-        font-size: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    .movie-card {
-        width: 150px;
-    }
-}
-
-#header-library1{
-  background: no-repeat center center/cover;
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.slide-add-btn:hover {
-  background-color: white;
-  color: #000;
-}
-
-/* ====== RESPONSIVE ====== */
-@media (max-width: 768px) {
-  .slide-caption {
-    top: 60%;
-    left: 8%;
-    max-width: 85%;
-  }
-
-  .slide-description {
-    font-size: 14px; 
-  }
-
-  .slide-play-btn {
-    padding: 8px 25px;
-  }
-}
-
-.slide-meta {
-  display: flex;
-  align-items: center;
-  gap: 105px; 
-}
-
-.slide-subtitle,
-.slide-release {
-  margin: 0;
-  display: inline;
-}
-
-
-/* ===== BODY RESET ===== */
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
