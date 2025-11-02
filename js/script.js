@@ -224,60 +224,74 @@ if (watchlistContainer) {
 // }();
 
 
-  const searchIcon = document.querySelector('.index-icons a:last-child');
-  
-  
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.placeholder = 'Search...';
-  input.classList.add('search-input');
-  
+// =================== PASSWORD TOGGLE ===================
+document.getElementById('togglePassword')?.addEventListener('click', () => {
+	const input = document.getElementById('passwordInput');
+	const eye = document.getElementById('eyeIcon');
+	if (!input || !eye) return;
+	input.type = input.type === 'password' ? 'text' : 'password';
+	eye.classList.toggle('fa-eye');
+	eye.classList.toggle('fa-eye-slash');
+});
 
-  searchIcon.parentNode.insertBefore(input, searchIcon);
-  
- 
-  searchIcon.addEventListener('click', (e) => {
+// =================== CARD ACTION BUTTONS ===================
+document.addEventListener('DOMContentLoaded', () => {
+	const removeButtons = document.querySelectorAll('.btn-remove');
+	removeButtons.forEach(btn => {
+		btn.addEventListener('click', (e) => {
+			const card = e.target.closest('.watch-card');
+			card.remove();
+		});
+	});
+
+	const playButtons = document.querySelectorAll('.btn-play');
+	playButtons.forEach(btn => {
+		btn.addEventListener('click', (e) => {
+			alert('Play button clicked! Implement player here.');
+		});
+	});
+});
+
+// =================== SIGN IN / SIGN UP TOGGLE USING jQUERY ===================
+$(document).ready(function() {
+
+  // Toggle between Sign In and Sign Up forms
+  $("#show-signup").click(function(e) {
     e.preventDefault();
-    input.classList.toggle('active');
-    if(input.classList.contains('active')) {
-      input.focus();
+    $("#login-form").fadeOut(200, function() {
+      $("#signup-form").fadeIn(200);
+    });
+  });
+
+  $("#show-login").click(function(e) {
+    e.preventDefault();
+    $("#signup-form").fadeOut(200, function() {
+      $("#login-form").fadeIn(200);
+    });
+  });
+
+  // Password eye toggle for both forms
+  $("#toggleLoginPassword").click(function() {
+    const input = $("#loginPassword");
+    const icon = $(this);
+    if (input.attr("type") === "password") {
+      input.attr("type", "text");
+      icon.removeClass("fa-eye").addClass("fa-eye-slash");
     } else {
-      input.value = '';
+      input.attr("type", "password");
+      icon.removeClass("fa-eye-slash").addClass("fa-eye");
     }
   });
 
-  input.addEventListener('blur', () => {
-    input.classList.remove('active');
-  });
-
-
-
-
-  
-document.getElementById('togglePassword').addEventListener('click',()=>{
-  const input=document.getElementById('passwordInput');
-  const eye=document.getElementById('eyeIcon');
-  input.type=input.type==="password"?"text":"password";
-  eye.classList.toggle('fa-eye');
-  eye.classList.toggle('fa-eye-slash');
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const removeButtons = document.querySelectorAll('.btn-remove');
-
-  removeButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const card = e.target.closest('.watch-card');
-      card.remove();
-    });
-  });
-
-  const playButtons = document.querySelectorAll('.btn-play');
-
-  playButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      alert('Play button clicked! Implement player here.');
-    });
+  $("#toggleSignupPassword").click(function() {
+    const input = $("#signupPassword");
+    const icon = $(this);
+    if (input.attr("type") === "password") {
+      input.attr("type", "text");
+      icon.removeClass("fa-eye").addClass("fa-eye-slash");
+    } else {
+      input.attr("type", "password");
+      icon.removeClass("fa-eye-slash").addClass("fa-eye");
+    }
   });
 });
