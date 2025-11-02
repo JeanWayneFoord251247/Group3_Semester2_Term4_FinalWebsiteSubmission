@@ -236,8 +236,10 @@ header {
 /* Input Wrapper */
 .signup-input-wrapper {
   position: relative;
+  margin-bottom: 20px;
 }
 
+/* Input Icons on Left */
 .signup-input-wrapper i {
   position: absolute;
   left: 12px;
@@ -248,15 +250,16 @@ header {
   font-weight: medium;
 }
 
+/* Inputs */
 .input-with-icon {
-  padding-left: 35px !important;
-  font-weight: medium;
+  padding-left: 40px; /* space for left icon */
+  font-weight: 500;
   color: #cecece !important;
 }
 
 .input-with-icon::placeholder {
   color: #ababab;
-  font-weight: medium;
+  font-weight: 500;
   opacity: 1;
 }
 
@@ -405,6 +408,17 @@ header {
   }
 }
 
+  .signup-terms-label {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .signup-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
 
 
 
@@ -418,8 +432,6 @@ header {
 
 
 
-
-  
 
   /* Login Section */
 .login-section {
@@ -744,6 +756,211 @@ body {
 
 
 
+/*Jean-Wayne */
+
+/* Header */
+.navbar {
+    background-color: rgba(12, 17, 27, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+/* Hero Carousel */
+#hero-carousel .carousel-item {
+    height: 100%;
+    position: relative;
+    margin-bottom: 150px;
+}
+
+#hero-carousel .carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(12, 17, 27, 0.9) 20%, rgba(12, 17, 27, 0.2) 80%);
+}
+
+#hero-carousel img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#hero-carousel .carousel-caption {
+    text-align: left;
+    left: 10%;
+    right: auto;
+    bottom: 50%;
+    transform: translateY(50%);
+    width: 45%;
+}
+
+#hero-carousel .carousel-caption h5 {
+    font-size: 56px; 
+    font-weight: bold;
+    margin-bottom: 16px; 
+}
+
+#hero-carousel .carousel-caption p {
+    font-size: 17.6px; 
+    line-height: 1.6;
+}
+
+/* Movie Rows */
+.movie-row h3 {
+    font-weight: bold;
+}
+
+.movie-list {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; 
+}
+
+.movie-list::-webkit-scrollbar {
+    display: none; 
+}
+
+.movie-card {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.movie-card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .movie-card-info {
+    opacity: 1;
+}
+
+.movie-card-info h6 {
+    font-size: 16px; 
+    margin-bottom: 5px;
+}
+
+.movie-card-info p {
+    font-size: 12.8px; 
+    color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-nav {
+        background-color: #0c111b;
+        text-align: center;
+        padding: 16px 0; 
+    }
+
+    #hero-carousel .carousel-caption {
+        width: 80%;
+    }
+
+    #hero-carousel .carousel-caption h5 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-card {
+        width: 150px;
+    }
+}
+
+#header-library1{
+  background: no-repeat center center/cover;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.slide-add-btn:hover {
+  background-color: white;
+  color: #000;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .slide-caption {
+    top: 60%;
+    left: 8%;
+    max-width: 85%;
+  }
+
+  .slide-description {
+    font-size: 14px; 
+  }
+
+  .slide-play-btn {
+    padding: 8px 25px;
+  }
+}
+
+.slide-meta {
+  display: flex;
+  align-items: center;
+  gap: 105px; 
+}
+
+.slide-subtitle,
+.slide-release {
+  margin: 0;
+  display: inline;
+}
+
+
+/* ===== BODY RESET ===== */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -900,152 +1117,4 @@ body {
 
 .index-footer-bottom a:hover {
   color: #fff;
-}
-
-/* Jean-Wayne */
-
-/* Header */
-.navbar {
-    background-color: rgba(12, 17, 27, 0.8);
-    backdrop-filter: blur(10px);
-}
-
-/* Hero Carousel */
-#hero-carousel .carousel-item {
-    height: 100%;
-    position: relative;
-    margin-bottom: 150px;
-}
-
-#hero-carousel .carousel-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(12, 17, 27, 0.9) 20%, rgba(12, 17, 27, 0.2) 80%);
-}
-
-#hero-carousel img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
-
-#hero-carousel .carousel-caption {
-    text-align: left;
-    left: 10%;
-    right: auto;
-    bottom: 50%;
-    transform: translateY(50%);
-    width: 45%;
-}
-
-#hero-carousel .carousel-caption h5 {
-    font-size: 56px; 
-    font-weight: bold;
-    margin-bottom: 16px; 
-}
-
-#hero-carousel .carousel-caption p {
-    font-size: 17.6px; 
-    line-height: 1.6;
-}
-
-/* Movie Rows */
-.movie-row h3 {
-    font-weight: bold;
-}
-
-.movie-list {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 20px;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; 
-}
-
-.movie-list::-webkit-scrollbar {
-    display: none; 
-}
-
-.movie-card {
-    flex: 0 0 auto;
-    width: 200px;
-    margin-right: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-}
-
-.movie-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-}
-
-.movie-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.movie-card-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    padding: 10px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.movie-card:hover .movie-card-info {
-    opacity: 1;
-}
-
-.movie-card-info h6 {
-    font-size: 16px; 
-    margin-bottom: 5px;
-}
-
-.movie-card-info p {
-    font-size: 12.8px; 
-    color: #ccc;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .navbar-nav {
-        background-color: #0c111b;
-        text-align: center;
-        padding: 16px 0; 
-    }
-
-    #hero-carousel .carousel-caption {
-        width: 80%;
-    }
-
-    #hero-carousel .carousel-caption h5 {
-        font-size: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    .movie-card {
-        width: 150px;
-    }
-}
-
-#header-library1{
-  background: no-repeat center center/cover;
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
 }
