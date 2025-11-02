@@ -200,84 +200,6 @@ header {
 
 
 
-/* Footer */
-.index-footer {
-  background-color: #111;
-  color: #fff;
-}
-
-.index-footer h3 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-}
-
-.index-footer a {
-  color: #bbb;
-  text-decoration: none;
-}
-
-.index-footer a:hover {
-  color: #6b46ba;
-}
-
-.footer-logo {
-  width: 140px;
-}
-
-.footer-social-icons img {
-  filter: brightness(0) invert(1);
-  transition: transform 0.3s;
-}
-
-.footer-social-icons img:hover {
-  transform: scale(1.1);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .index-title {
-    font-size: 2.8rem;
-  }
-  header {
-    background-position: top;
-  }
-}
-
-@media (max-width: 768px) {
-  .index-title {
-    font-size: 2.3rem;
-  }
-  .index-subtitle {
-    font-size: 1rem;
-  }
-  .index-description {
-    font-size: 0.9rem;
-  }
-  .index-btn {
-    padding: 10px 35px;
-  }
-}
-
-@media (max-width: 576px) {
-  header {
-    background: url('../assets/images/Home\ PageDesktop\ Image.png') no-repeat center center/cover;
-  }
-  .index-logo {
-    width: 130px;
-  }
-  .index-title {
-    font-size: 2rem;
-  }
-  .index-description {
-    font-size: 0.85rem;
-  }
-}
-
-
-
-
-
-
 
 
 
@@ -285,21 +207,21 @@ header {
 /* Sign Up Section */
 .signup-section {
   background: url('../assets/images/SignUP Background.png') no-repeat center/cover;
-  min-height: 100vh;
+  min-height: 120vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 20px;
+  padding: 5px;
   transition: background 0.3s ease-in-out;
 }
 
 /* Overlay / Form Box */
 .signup-overlay {
-  padding: 40px;
+  padding: 25px;
   border-radius: 12px;
-  width: 100%;
+  width: 200%;
   max-width: 480px;
-  margin-right: 220px;
+  margin-right: 120px;
   background: rgba(30, 30, 59, 0.85);
 }
 
@@ -324,8 +246,8 @@ header {
   top: 50%;
   transform: translateY(-50%);
   color: #6b46ba;
-  font-size: 16px;
-  pointer-events: none;
+  font-size: 14px;
+  font-weight: medium;
 }
 
 /* Inputs */
@@ -360,29 +282,17 @@ header {
   box-shadow: 0 0 0 0.2rem rgba(70, 25, 173, 0.4);
 }
 
-/* Password Group */
-.signup-password-group {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.signup-password-group input {
-  flex: 1;
-  padding-left: 40px; /* space for lock icon */
-  padding-right: 40px; /* space for eye toggle */
+/* Password Toggle */
+.signup-password-group .form-control {
+  border-radius: 8px 0 0 8px;
 }
 
 .signup-password-toggle {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
+  background: #1e1e3b;
+  border: 1px solid #4619AD;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
   color: #fff;
-  cursor: pointer;
-  padding: 0;
 }
 
 /* Buttons */
@@ -418,6 +328,7 @@ header {
 .signup-terms-label a {
   color: #05a6f6;
   text-decoration: underline;
+  text-align: left;
 }
 
 /* Separator */
@@ -447,9 +358,6 @@ header {
 
 /* Google Button */
 .signup-google-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: #fff;
   color: #000;
   font-weight: 600;
@@ -460,11 +368,6 @@ header {
 
 .signup-google-btn:hover {
   background: #342085;
-}
-
-.signup-google-btn .google-icon {
-  margin-right: 10px;
-  font-size: 18px;
 }
 
 /* Login Link */
@@ -479,13 +382,31 @@ header {
   text-decoration: none;
 }
 
-/* Responsive */
-@media (max-width: 991.98px) { /* Change background for smaller screens */ .signup-section { background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover; justify-content: center; }
+
+@media (max-width: 991.98px) {
+  /* Change background for smaller screens */
+  .signup-section {
+    background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover;
+    justify-content: center;
+  }
+
   .signup-overlay {
     margin-right: 0;
     width: 90%;
     padding: 30px;
   }
+
+  .signup-terms-label {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .signup-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
 
   .signup-terms-label {
     margin-right: 0;
@@ -515,7 +436,7 @@ header {
   /* Login Section */
 .login-section {
   background: url('../assets/images/Log in Background.png') no-repeat center/cover;
-  min-height: 100vh;
+  min-height: 120vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -525,11 +446,11 @@ header {
 
 /* Overlay / Form Box */
 .login-overlay {
-  padding: 40px;
+   padding: 25px;
   border-radius: 12px;
-  width: 100%;
+  width: 200%;
   max-width: 480px;
-  margin-right: 220px;
+  margin-right: 120px;
   background: rgba(30, 30, 59, 0.85);
 }
 
@@ -700,6 +621,10 @@ header {
     text-align: center;
   }
 }
+
+
+
+
 
 
 
