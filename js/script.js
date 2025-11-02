@@ -54,17 +54,8 @@ function createMovieCard(movie) {
 	</div>`;
 }
 
-function setupMovieCardClicks() {
-	document.querySelectorAll('.movie-card').forEach(card => {
-		card.addEventListener('click', () => {
-			const id = card.getAttribute('data-id');
-			window.location.href = `movie.html?id=${id}`;
-		});
-	});
-}
-
 // =================== MAIN MOVIES & CAROUSEL ===================
-!async function() {
+$(async function () {
 	const apiUrl = 'https://api.themoviedb.org/3/account/22320853/favorite/movies?language=en-US&page=1&sort_by=created_at.asc';
 	const data = await fetchJSON(apiUrl);
 	if (!data || !data.results) return;
@@ -80,76 +71,78 @@ function setupMovieCardClicks() {
 	));
 
 	// Populate Carousels
-	const heroCarouselInner = document.getElementById('hero-carousel-inner');
-	const carouselUnderPopularInner = document.getElementById('carousel-under-popular-inner');
-	const carouselAboveRecommendedInner = document.getElementById('carousel-above-recommended-inner');
-
-	[heroCarouselInner, carouselUnderPopularInner, carouselAboveRecommendedInner].forEach(carousel => {
-		if (!carousel) return;
-		carousel.innerHTML = '';
+	const $carousels = $('#hero-carousel-inner, #carousel-under-popular-inner, #carousel-above-recommended-inner');
+	$carousels.each(function () {
+		const $carousel = $(this);
+		$carousel.empty();
 		for (let i = 0; i < 5 && i < movies.length; i++) {
-			carousel.innerHTML += createCarouselItem(movies[i], i === 0);
+			$carousel.append(createCarouselItem(movies[i], i === 0));
 		}
 	});
 
 	// Populate Movie Rows
-	const movieLists = document.querySelectorAll('.movie-list');
 	const movieHTML = movies.map(createMovieCard).join('');
-	movieLists.forEach(list => list.innerHTML = movieHTML);
-	setupMovieCardClicks();
-}();
+	$('.movie-list').html(movieHTML);
+
+	// Movie Card Clicks
+	$('.movie-card').on('click', function () {
+		const id = $(this).data('id');
+		window.location.href = `movie.html?id=${id}`;
+	});
+});
 
 // =================== MOVIE PAGE ===================
 const movieId = new URLSearchParams(window.location.search).get('id');
 
 if (movieId) {
-	!async function() {
+	$(async function () {
 		const movieData = await fetchJSON(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`);
 		const trailerData = await fetchJSON(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`);
 		if (!movieData) return;
 
-		const detailsContainer = document.getElementById('movie-details');
-		if (!detailsContainer) return;
+		const $detailsContainer = $('#movie-details');
+		if (!$detailsContainer.length) return;
 
-		detailsContainer.innerHTML = `
-		<div class="col-md-5">
-			<img src="https://image.tmdb.org/t/p/w500${movieData.poster_path}" alt="${movieData.title}" class="img-fluid rounded">
-		</div>
-		<div class="col-md-7">
-			<h2>${movieData.title}</h2>
-			<p><strong>Release Date:</strong> ${movieData.release_date}</p>
-			<p><strong>Rating:</strong> ${movieData.vote_average} / 10</p>
-			<p>${movieData.overview}</p>
-			<button class="index-btn btn-play"> Play Trailer</button>
-			<button class="index-btn btn-watchlist"> Add to Watchlist</button>
-			<div id="trailer-container" style="margin-top:20px;"></div>
-		</div>`;
+		$detailsContainer.html(`
+			<div class="col-md-5">
+				<img src="https://image.tmdb.org/t/p/w500${movieData.poster_path}" alt="${movieData.title}" class="img-fluid rounded">
+			</div>
+			<div class="col-md-7">
+				<h2>${movieData.title}</h2>
+				<p><strong>Release Date:</strong> ${movieData.release_date}</p>
+				<p><strong>Rating:</strong> ${movieData.vote_average} / 10</p>
+				<p>${movieData.overview}</p>
+				<button class="index-btn btn-play"> Play Trailer</button>
+				<button class="index-btn btn-watchlist"> Add to Watchlist</button>
+				<div id="trailer-container" style="margin-top:20px;"></div>
+			</div>
+		`);
 
 		// Trailer Logic
 		const trailer = trailerData?.results?.find(v => v.site === 'YouTube' && v.type === 'Trailer');
-		const playBtn = document.querySelector('.btn-play');
-		const trailerContainer = document.getElementById('trailer-container');
+		const $playBtn = $('.btn-play');
+		const $trailerContainer = $('#trailer-container');
 
-		playBtn.addEventListener('click', () => {
+		$playBtn.on('click', function () {
 			if (trailer) {
-				trailerContainer.innerHTML = `<iframe width="100%" height="400" src="https://www.youtube.com/embed/${trailer.key}" title="${movieData.title} Trailer" frameborder="0" allowfullscreen></iframe>`;
-				playBtn.style.display = 'none';
+				$trailerContainer.html(`
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/${trailer.key}" title="${movieData.title} Trailer" frameborder="0" allowfullscreen></iframe>
+				`);
+				$playBtn.hide();
 			} else {
-				trailerContainer.innerHTML = `<p>No trailer available.</p>`;
+				$trailerContainer.html('<p>No trailer available.</p>');
 			}
 		});
 
 		// Watchlist Logic
-		const watchlistBtn = document.querySelector('.btn-watchlist');
+		const $watchlistBtn = $('.btn-watchlist');
 		let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
 		if (watchlist.some(item => item.id === movieData.id)) {
-			watchlistBtn.textContent = ' Added';
-			watchlistBtn.disabled = true;
-			watchlistBtn.style.backgroundColor = 'green';
+			$watchlistBtn.text(' Added').prop('disabled', true).css('background-color', 'green');
 		}
 
-		watchlistBtn.addEventListener('click', () => {
+		$watchlistBtn.on('click', function () {
 			if (!watchlist.some(item => item.id === movieData.id)) {
 				watchlist.push({
 					id: movieData.id,
@@ -159,23 +152,23 @@ if (movieId) {
 					release: movieData.release_date
 				});
 				localStorage.setItem('watchlist', JSON.stringify(watchlist));
-				watchlistBtn.textContent = ' Added';
-				watchlistBtn.disabled = true;
-				watchlistBtn.style.backgroundColor = 'green';
+				$watchlistBtn.text(' Added').prop('disabled', true).css('background-color', 'green');
 			}
 		});
-	}();
+	});
 }
 
 // =================== WATCHLIST PAGE ===================
-const watchlistContainer = document.getElementById('watchlist-container');
-if (watchlistContainer) {
+$(function () {
+	const $watchlistContainer = $('#watchlist-container');
+	if (!$watchlistContainer.length) return;
+
 	let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
 	if (watchlist.length === 0) {
-		watchlistContainer.innerHTML = '<p>No movies in your watchlist yet.</p>';
+		$watchlistContainer.html('<p>No movies in your watchlist yet.</p>');
 	} else {
-		watchlistContainer.innerHTML = watchlist.map(movie => `
+		const html = watchlist.map(movie => `
 			<div class="col-md-3 mb-4">
 				<div class="card watchlist-card">
 					<img src="https://image.tmdb.org/t/p/w500${movie.poster}" alt="${movie.title}" class="img-fluid rounded">
@@ -185,17 +178,17 @@ if (watchlistContainer) {
 					<button class="remove-btn" data-id="${movie.id}">Remove</button>
 				</div>
 			</div>`).join('');
+		$watchlistContainer.html(html);
 	}
 
-	watchlistContainer.addEventListener('click', e => {
-		if (e.target.classList.contains('remove-btn')) {
-			const id = parseInt(e.target.dataset.id);
-			watchlist = watchlist.filter(movie => movie.id !== id);
-			localStorage.setItem('watchlist', JSON.stringify(watchlist));
-			e.target.closest('.col-md-3').remove();
-		}
+	$watchlistContainer.on('click', '.remove-btn', function () {
+		const id = parseInt($(this).data('id'));
+		watchlist = watchlist.filter(movie => movie.id !== id);
+		localStorage.setItem('watchlist', JSON.stringify(watchlist));
+		$(this).closest('.col-md-3').remove();
 	});
-}
+});
+
 
 
 
