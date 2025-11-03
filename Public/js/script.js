@@ -54,8 +54,17 @@ function createMovieCard(movie) {
 	</div>`;
 }
 
+function setupMovieCardClicks() {
+	document.querySelectorAll('.movie-card').forEach(card => {
+		card.addEventListener('click', () => {
+			const id = card.getAttribute('data-id');
+			window.location.href = `movie.html?id=${id}`;
+		});
+	});
+}
+
 // =================== MAIN MOVIES & CAROUSEL ===================
-$(async function () {
+!async function() {
 	const apiUrl = 'https://api.themoviedb.org/3/account/22320853/favorite/movies?language=en-US&page=1&sort_by=created_at.asc';
 	const data = await fetchJSON(apiUrl);
 	if (!data || !data.results) return;
@@ -71,78 +80,76 @@ $(async function () {
 	));
 
 	// Populate Carousels
-	const $carousels = $('#hero-carousel-inner, #carousel-under-popular-inner, #carousel-above-recommended-inner');
-	$carousels.each(function () {
-		const $carousel = $(this);
-		$carousel.empty();
+	const heroCarouselInner = document.getElementById('hero-carousel-inner');
+	const carouselUnderPopularInner = document.getElementById('carousel-under-popular-inner');
+	const carouselAboveRecommendedInner = document.getElementById('carousel-above-recommended-inner');
+
+	[heroCarouselInner, carouselUnderPopularInner, carouselAboveRecommendedInner].forEach(carousel => {
+		if (!carousel) return;
+		carousel.innerHTML = '';
 		for (let i = 0; i < 5 && i < movies.length; i++) {
-			$carousel.append(createCarouselItem(movies[i], i === 0));
+			carousel.innerHTML += createCarouselItem(movies[i], i === 0);
 		}
 	});
 
 	// Populate Movie Rows
+	const movieLists = document.querySelectorAll('.movie-list');
 	const movieHTML = movies.map(createMovieCard).join('');
-	$('.movie-list').html(movieHTML);
-
-	// Movie Card Clicks
-	$('.movie-card').on('click', function () {
-		const id = $(this).data('id');
-		window.location.href = `movie.html?id=${id}`;
-	});
-});
+	movieLists.forEach(list => list.innerHTML = movieHTML);
+	setupMovieCardClicks();
+}();
 
 // =================== MOVIE PAGE ===================
 const movieId = new URLSearchParams(window.location.search).get('id');
 
 if (movieId) {
-	$(async function () {
+	!async function() {
 		const movieData = await fetchJSON(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`);
 		const trailerData = await fetchJSON(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`);
 		if (!movieData) return;
 
-		const $detailsContainer = $('#movie-details');
-		if (!$detailsContainer.length) return;
+		const detailsContainer = document.getElementById('movie-details');
+		if (!detailsContainer) return;
 
-		$detailsContainer.html(`
-			<div class="col-md-5">
-				<img src="https://image.tmdb.org/t/p/w500${movieData.poster_path}" alt="${movieData.title}" class="img-fluid rounded">
-			</div>
-			<div class="col-md-7">
-				<h2>${movieData.title}</h2>
-				<p><strong>Release Date:</strong> ${movieData.release_date}</p>
-				<p><strong>Rating:</strong> ${movieData.vote_average} / 10</p>
-				<p>${movieData.overview}</p>
-				<button class="index-btn btn-play"> Play Trailer</button>
-				<button class="index-btn btn-watchlist"> Add to Watchlist</button>
-				<div id="trailer-container" style="margin-top:20px;"></div>
-			</div>
-		`);
+		detailsContainer.innerHTML = `
+		<div class="col-md-5">
+			<img src="https://image.tmdb.org/t/p/w500${movieData.poster_path}" alt="${movieData.title}" class="img-fluid rounded">
+		</div>
+		<div class="col-md-7">
+			<h2>${movieData.title}</h2>
+			<p><strong>Release Date:</strong> ${movieData.release_date}</p>
+			<p><strong>Rating:</strong> ${movieData.vote_average} / 10</p>
+			<p>${movieData.overview}</p>
+			<button class="index-btn btn-play"> Play Trailer</button>
+			<button class="index-btn btn-watchlist"> Add to Watchlist</button>
+			<div id="trailer-container" style="margin-top:20px;"></div>
+		</div>`;
 
 		// Trailer Logic
 		const trailer = trailerData?.results?.find(v => v.site === 'YouTube' && v.type === 'Trailer');
-		const $playBtn = $('.btn-play');
-		const $trailerContainer = $('#trailer-container');
+		const playBtn = document.querySelector('.btn-play');
+		const trailerContainer = document.getElementById('trailer-container');
 
-		$playBtn.on('click', function () {
+		playBtn.addEventListener('click', () => {
 			if (trailer) {
-				$trailerContainer.html(`
-					<iframe width="100%" height="400" src="https://www.youtube.com/embed/${trailer.key}" title="${movieData.title} Trailer" frameborder="0" allowfullscreen></iframe>
-				`);
-				$playBtn.hide();
+				trailerContainer.innerHTML = `<iframe width="100%" height="400" src="https://www.youtube.com/embed/${trailer.key}" title="${movieData.title} Trailer" frameborder="0" allowfullscreen></iframe>`;
+				playBtn.style.display = 'none';
 			} else {
-				$trailerContainer.html('<p>No trailer available.</p>');
+				trailerContainer.innerHTML = `<p>No trailer available.</p>`;
 			}
 		});
 
 		// Watchlist Logic
-		const $watchlistBtn = $('.btn-watchlist');
+		const watchlistBtn = document.querySelector('.btn-watchlist');
 		let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
 		if (watchlist.some(item => item.id === movieData.id)) {
-			$watchlistBtn.text(' Added').prop('disabled', true).css('background-color', 'green');
+			watchlistBtn.textContent = ' Added';
+			watchlistBtn.disabled = true;
+			watchlistBtn.style.backgroundColor = 'green';
 		}
 
-		$watchlistBtn.on('click', function () {
+		watchlistBtn.addEventListener('click', () => {
 			if (!watchlist.some(item => item.id === movieData.id)) {
 				watchlist.push({
 					id: movieData.id,
@@ -152,23 +159,23 @@ if (movieId) {
 					release: movieData.release_date
 				});
 				localStorage.setItem('watchlist', JSON.stringify(watchlist));
-				$watchlistBtn.text(' Added').prop('disabled', true).css('background-color', 'green');
+				watchlistBtn.textContent = ' Added';
+				watchlistBtn.disabled = true;
+				watchlistBtn.style.backgroundColor = 'green';
 			}
 		});
-	});
+	}();
 }
 
 // =================== WATCHLIST PAGE ===================
-$(function () {
-	const $watchlistContainer = $('#watchlist-container');
-	if (!$watchlistContainer.length) return;
-
+const watchlistContainer = document.getElementById('watchlist-container');
+if (watchlistContainer) {
 	let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
 	if (watchlist.length === 0) {
-		$watchlistContainer.html('<p>No movies in your watchlist yet.</p>');
+		watchlistContainer.innerHTML = '<p>No movies in your watchlist yet.</p>';
 	} else {
-		const html = watchlist.map(movie => `
+		watchlistContainer.innerHTML = watchlist.map(movie => `
 			<div class="col-md-3 mb-4">
 				<div class="card watchlist-card">
 					<img src="https://image.tmdb.org/t/p/w500${movie.poster}" alt="${movie.title}" class="img-fluid rounded">
@@ -178,17 +185,17 @@ $(function () {
 					<button class="remove-btn" data-id="${movie.id}">Remove</button>
 				</div>
 			</div>`).join('');
-		$watchlistContainer.html(html);
 	}
 
-	$watchlistContainer.on('click', '.remove-btn', function () {
-		const id = parseInt($(this).data('id'));
-		watchlist = watchlist.filter(movie => movie.id !== id);
-		localStorage.setItem('watchlist', JSON.stringify(watchlist));
-		$(this).closest('.col-md-3').remove();
+	watchlistContainer.addEventListener('click', e => {
+		if (e.target.classList.contains('remove-btn')) {
+			const id = parseInt(e.target.dataset.id);
+			watchlist = watchlist.filter(movie => movie.id !== id);
+			localStorage.setItem('watchlist', JSON.stringify(watchlist));
+			e.target.closest('.col-md-3').remove();
+		}
 	});
-});
-
+}
 
 
 
@@ -217,60 +224,74 @@ $(function () {
 // }();
 
 
-  const searchIcon = document.querySelector('.index-icons a:last-child');
-  
-  
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.placeholder = 'Search...';
-  input.classList.add('search-input');
-  
+// =================== PASSWORD TOGGLE ===================
+document.getElementById('togglePassword')?.addEventListener('click', () => {
+	const input = document.getElementById('passwordInput');
+	const eye = document.getElementById('eyeIcon');
+	if (!input || !eye) return;
+	input.type = input.type === 'password' ? 'text' : 'password';
+	eye.classList.toggle('fa-eye');
+	eye.classList.toggle('fa-eye-slash');
+});
 
-  searchIcon.parentNode.insertBefore(input, searchIcon);
-  
- 
-  searchIcon.addEventListener('click', (e) => {
+// =================== CARD ACTION BUTTONS ===================
+document.addEventListener('DOMContentLoaded', () => {
+	const removeButtons = document.querySelectorAll('.btn-remove');
+	removeButtons.forEach(btn => {
+		btn.addEventListener('click', (e) => {
+			const card = e.target.closest('.watch-card');
+			card.remove();
+		});
+	});
+
+	const playButtons = document.querySelectorAll('.btn-play');
+	playButtons.forEach(btn => {
+		btn.addEventListener('click', (e) => {
+			alert('Play button clicked! Implement player here.');
+		});
+	});
+});
+
+// =================== SIGN IN / SIGN UP TOGGLE USING jQUERY ===================
+$(document).ready(function() {
+
+  // Toggle between Sign In and Sign Up forms
+  $("#show-signup").click(function(e) {
     e.preventDefault();
-    input.classList.toggle('active');
-    if(input.classList.contains('active')) {
-      input.focus();
+    $("#login-form").fadeOut(200, function() {
+      $("#signup-form").fadeIn(200);
+    });
+  });
+
+  $("#show-login").click(function(e) {
+    e.preventDefault();
+    $("#signup-form").fadeOut(200, function() {
+      $("#login-form").fadeIn(200);
+    });
+  });
+
+  // Password eye toggle for both forms
+  $("#toggleLoginPassword").click(function() {
+    const input = $("#loginPassword");
+    const icon = $(this);
+    if (input.attr("type") === "password") {
+      input.attr("type", "text");
+      icon.removeClass("fa-eye").addClass("fa-eye-slash");
     } else {
-      input.value = '';
+      input.attr("type", "password");
+      icon.removeClass("fa-eye-slash").addClass("fa-eye");
     }
   });
 
-  input.addEventListener('blur', () => {
-    input.classList.remove('active');
-  });
-
-
-
-
-  
-document.getElementById('togglePassword').addEventListener('click',()=>{
-  const input=document.getElementById('passwordInput');
-  const eye=document.getElementById('eyeIcon');
-  input.type=input.type==="password"?"text":"password";
-  eye.classList.toggle('fa-eye');
-  eye.classList.toggle('fa-eye-slash');
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const removeButtons = document.querySelectorAll('.btn-remove');
-
-  removeButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const card = e.target.closest('.watch-card');
-      card.remove();
-    });
-  });
-
-  const playButtons = document.querySelectorAll('.btn-play');
-
-  playButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      alert('Play button clicked! Implement player here.');
-    });
+  $("#toggleSignupPassword").click(function() {
+    const input = $("#signupPassword");
+    const icon = $(this);
+    if (input.attr("type") === "password") {
+      input.attr("type", "text");
+      icon.removeClass("fa-eye").addClass("fa-eye-slash");
+    } else {
+      input.attr("type", "password");
+      icon.removeClass("fa-eye-slash").addClass("fa-eye");
+    }
   });
 });
