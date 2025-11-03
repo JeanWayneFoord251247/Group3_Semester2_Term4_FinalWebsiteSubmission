@@ -202,7 +202,7 @@ header {
 
 
 
-
+/* shane css for watchlist cards */
 
 /* Sign Up Section */
 .signup-section {
@@ -629,10 +629,163 @@ header {
 
 
 
+/* styling shane  */
 /* ===== WATCHLIST PAGE ===== */
 
-/* Flex layout to push footer to bottom */
-body {
+.watchlist-section {
+   padding: 160px 5% 80px; /* top padding increased to move under navbar */
+  background: linear-gradient(to bottom, rgba(10, 10, 25, 0.9), rgba(20, 10, 50, 0.9)),
+              url('../assets/images/Watchlist.png') no-repeat center/cover;
+  min-height: 80vh;
+}
+
+/* Title */
+.watchlist-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 200px;
+  text-shadow: 0 0 8px rgba(70, 25, 173, 0.6);
+}
+
+/* Bootstrap Grid Wrapper */
+#watchlist-container {
+  display: flex;
+  
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Movie Card */
+.watchlist-card {
+  background: rgba(20, 20, 40, 0.85);
+  border: 1px solid rgba(70, 25, 173, 0.4);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  max-width: 240px; /*  controls card width */
+  margin: 10px;
+  
+}
+
+.watchlist-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 20px rgba(70, 25, 173, 0.6);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Poster */
+.watchlist-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 2px solid rgba(70, 25, 173, 0.7);
+}
+
+/* Text Info */
+.watchlist-card h3 {
+  font-size: 16px;
+  color: #fff;
+  margin: 10px 0 2px;
+}
+
+.watchlist-card p {
+  margin: 2px 0;
+  color: #ccc;
+  font-size: 13px;
+}
+
+/* Rating */
+.watchlist-card p:first-of-type {
+  font-weight: 600;
+  color: #ffda79;
+}
+
+/* Remove Button */
+.remove-btn {
+  background: linear-gradient(135deg, #4619AD, #8a4fff);
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 12px auto 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(70, 25, 173, 0.5);
+}
+
+.remove-btn:hover {
+  background: linear-gradient(135deg, #fff, #bda6ff);
+  color: #000;
+  box-shadow: 0 0 20px rgba(185, 139, 255, 0.8);
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+@media (min-width: 1200px) {
+  .watch-card {
+    flex: 0 1 calc(25% - 20px);
+  }
+}
+}
+
+/* Medium screens → 3 cards */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .watch-card {
+    flex: 0 1 calc(33.333% - 20px);
+    max-width: 220px;
+  }
+  .watch-card img {
+    height: 260px;
+  }
+}
+
+/* Tablets → 2 cards */
+@media (max-width: 991px) and (min-width: 577px) {
+  .watchlist-section {
+    padding: 160px 10% 70px;
+  }
+  .watch-card {
+    flex: 0 1 calc(50% - 20px);
+    max-width: 180px;
+  }
+  .watch-card img {
+    height: 220px;
+  }
+  .watch-card h3 {
+    font-size: 14px;
+  }
+  .remove-btn {
+    font-size: 13.5px;
+    padding: 8px 18px;
+  }
+}
+
+/* Small phones → 1 card */
+@media (max-width: 576px) {
+  .watchlist-section {
+    padding: 140px 12% 70px;
+  }
+  .watch-card {
+    flex: 0 1 100%;
+    max-width: 160px;
+  }
+  .watch-card img {
+    height: 200px;
+  }
+}
+
+/* mene css for watchlist cards */
+
+/* body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   display: flex;
@@ -648,14 +801,12 @@ body {
   box-sizing: border-box;
 }
 
-/* Container */
 .watchlist-section .container {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
 
-/* Title */
 .watchlist-title {
   font-size: 32px;
   font-weight: 700;
@@ -664,7 +815,6 @@ body {
   color: #fff;
 }
 
-/* Grid */
 .watchlist-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -672,14 +822,12 @@ body {
   justify-items: center;
 }
 
-/* Ensure cards stay side by side on larger screens */
 @media (max-width: 768px) {
   .watchlist-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
 
-/* Optional: stack fully on very small screens */
 @media (max-width: 480px) {
   .watchlist-grid {
     grid-template-columns: 1fr;
@@ -687,22 +835,22 @@ body {
   }
 }
 
-/* Card */
 .watch-card {
-  background: #0e0e0e;
-  border-radius: 12px;
+  flex: 0 0 auto;
+  width: 200px;
+  margin-right: 20px;
+  border-radius: 10px;
+  color: black;
+  background-color: #000;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  transition: transform 0.3s ease;
-  width: 100%;
-  max-width: 220px;
 }
 
 .watch-card:hover {
   transform: translateY(-5px);
 }
 
-/* Image */
 .card-image {
   position: relative;
 }
@@ -713,7 +861,6 @@ body {
   border-bottom: 2px solid #4619AD;
 }
 
-/* Buttons */
 .card-buttons {
   position: absolute;
   top: 8px;
@@ -721,12 +868,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  color: #4619AD;
 }
 
 .card-buttons button {
   border: none;
   background: #4619AD;
-  color: white;
   padding: 6px 8px;
   border-radius: 6px;
   cursor: pointer;
@@ -737,7 +884,6 @@ body {
   background: #6b46ba;
 }
 
-/* Info */
 .card-info {
   padding: 10px;
   text-align: center;
@@ -752,7 +898,26 @@ body {
 .movie-date {
   font-size: 12px;
   color: #bbb;
-}
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1118,3 +1283,284 @@ body {
 .index-footer-bottom a:hover {
   color: #fff;
 }
+
+
+
+
+
+/* = Shane improved liams about page code */
+#about-us-header {
+  background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover;
+  min-height: 140vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  position: relative;
+  padding: 200px 20px 50px 20px;
+  transition: background 0.5s ease;
+}
+
+.about-header-content {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.about-title {
+  font-size: 60px;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  margin-top: 0;
+}
+
+.about-title span {
+  color: #4619AD;
+}
+
+.about-subtitle {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.happy-viewers {
+  font-size: 1.2rem;
+  margin-top: 50px;
+}
+
+.choose-us {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.choose-us span {
+  color: #4619AD;
+  font-weight: bold;
+}
+
+.about-pargf-1,
+.about-pargf-2 {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* ===== Reviews Section ===== */
+.reviews-section {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.reviews-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+.reviews-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.review-block {
+  background: rgba(22, 22, 40, 0.8);
+  border: 2px solid #4619AD;
+  border-radius: 16px;
+  color: #fff;
+  padding: 25px 20px;
+  width: 300px;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(70, 25, 173, 0.3);
+}
+
+.review-block:hover {
+  transform: translateY(-8px);
+  border-color: #7e3ff2;
+  box-shadow: 0 0 25px rgba(126, 63, 242, 0.5);
+}
+
+.review-text span {
+  font-size: 2rem;
+  color: #7e3ff2;
+  line-height: 1;
+}
+
+.review-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.review-text strong {
+  display: block;
+  margin-top: 10px;
+  color: #7e3ff2;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 1200px) {
+  #about-us-header {
+    padding: 150px 20px 50px 20px;
+  }
+  .about-title { font-size: 50px; }
+  .about-subtitle { font-size: 22px; }
+  .choose-us { font-size: 35px; }
+}
+
+@media (max-width: 992px) {
+  #about-us-header {
+    background: linear-gradient(to bottom, #16003f 0%, #2e005f 100%);
+    padding: 120px 20px 50px 20px;
+    min-height: 160vh; /* make page longer for mobile */
+  }
+  .about-title { font-size: 45px; }
+  .about-subtitle { font-size: 20px; }
+  .choose-us { font-size: 32px; }
+  .reviews-container { gap: 30px; }
+  .review-block { width: 260px; padding: 20px; }
+}
+
+@media (max-width: 768px) {
+  #about-us-header {
+    padding: 100px 15px 40px 15px;
+    min-height: 210vh; /* more vertical space for mobile */
+  }
+  .about-title { font-size: 38px; }
+  .about-subtitle { font-size: 18px; }
+  .choose-us { font-size: 28px; }
+  .reviews-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .review-block { width: 90%; padding: 18px; }
+}
+
+@media (max-width: 480px) {
+  #about-us-header {
+    padding: 80px 10px 30px 10px;
+    min-height: 600vh; /* ensure long scroll for small phones */
+  }
+  .about-title { font-size: 32px; }
+  .about-subtitle { font-size: 16px; }
+  .choose-us { font-size: 24px; }
+  .review-text { font-size: 0.9rem; }
+  .review-block { width: 95%; padding: 15px; }
+}
+
+
+
+/* = Liams about page code */
+
+/* #about-us-header {
+  background: url('../assets/images/Home PageDesktop Image.png') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.about-header-content {
+ align-content: center;
+}
+
+.about-title {
+  font-size: 1.5rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  margin-top: -6cm;
+}
+
+.about-title span {
+  color: #4619AD;
+}
+
+.about-subtitle {
+  font-size: 1rem;
+}
+
+.happy-viewers {
+  font-size: 1rem;
+  margin-top: 2cm;
+}
+.choose-us {
+font-size: 2rem;
+}
+
+.choose-us span {
+color: #4619AD;
+font-weight: bold;
+}
+
+
+.about-pargf-1 {
+  font-size: 0.8rem;
+  margin-top: 20px ;
+  margin-bottom: 0px ;
+  line-height: 1.6;
+}
+
+.about-pargf-2 {
+  font-size: 0.8rem;
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+  line-height: 1.6;
+}
+
+.blocks {
+  text-align: left;
+  margin-left: -10cm;
+  border-style: solid;
+  border-color: #4619AD;
+  margin-top: 3cm;
+  padding: 0.5cm;
+  position: absolute;
+}
+
+.blocks span {
+font-size: 2rem;
+}
+
+.block-2 {
+  text-align: left;
+  margin-left: 0cm;
+  border-style: solid;
+  border-color: #4619AD;
+  margin-top: 3cm;
+  padding: 0.5cm;
+  position: absolute;
+  margin-left: 2cm;
+}
+
+.block-2 span {
+font-size: 2rem;
+}
+
+.block-3 {
+  text-align: left;
+  margin-left: 0cm;
+  border-style: solid;
+  border-color: #4619AD;
+  margin-top: 3cm;
+  padding: 0.5cm;
+  position: absolute;
+  margin-left: 14cm;
+}
+
+.block-3 span {
+font-size: 2rem;
+}  */
