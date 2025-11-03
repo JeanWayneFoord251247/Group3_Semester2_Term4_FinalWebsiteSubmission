@@ -764,13 +764,17 @@ body {
 
 /* Card */
 .watch-card {
-  background: #0e0e0e;
-  border-radius: 12px;
+  flex: 0 0 auto;
+  width: 200px;
+  margin-right: 20px;
+  border-radius: 10px;
+  color: black;
+  background-color: #000;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  transition: transform 0.3s ease;
-  width: 100%;
-  max-width: 220px;
+
+  
 }
 
 .watch-card:hover {
@@ -796,12 +800,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  color: #4619AD;
 }
 
 .card-buttons button {
   border: none;
-  background: #4619AD;
-  color: white;
+  background: #4619AD;;
   padding: 6px 8px;
   border-radius: 6px;
   cursor: pointer;
